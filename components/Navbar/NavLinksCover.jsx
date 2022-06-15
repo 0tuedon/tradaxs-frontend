@@ -10,8 +10,8 @@ const NavLinksCover = ({ isMenuActive, handle }) => {
         isMenuActive ? "translate-x-0" : "translate-x-96 md:translate-x-0"
       } space-y-4 text-white md:flex bg-accent md:bg-transparent md:space-y-0`}
     >
-      <button className="absolute top-3 right-6 md:hidden" onClick={handle}>
-        <AiOutlineClose className="w-5 h-5 text-white" />
+      <button className="absolute top-5 right-4 md:hidden" onClick={handle}>
+        <AiOutlineClose className="w-6 h-6 text-white" />
       </button>
       <ul className="items-center md:space-x-5 md:flex justify-evenly">
         {paths.map((path, index) => {

@@ -7,7 +7,7 @@ const NavLink = ({ href = "/", exact, children, ...props }) => {
   const isActive = exact ? pathname === href : pathname.startsWith(href);
 
   if (isActive && !exact) {
-    props.className += " bg-white";
+    props.className += " bg-white text-accent";
   }
 
   return (
