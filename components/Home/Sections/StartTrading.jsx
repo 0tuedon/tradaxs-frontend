@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Bitcoin from "../../../assets/icons/Bitcoin";
 import DownArrow from "../../../assets/icons/DownArrow";
+import LeftArrow from "../../../assets/icons/LeftArrow";
 
 const StartTrading = () => {
   return (
@@ -13,22 +14,25 @@ const StartTrading = () => {
           <div>
             <span className="flex items-center justify-between">
               <h3 className="text-sm font-medium md:text-base">Buy</h3>
-              <h3 className="text-sm text-accent md:text-base">Sell</h3>
+              <h3 className="flex items-center text-sm text-accent md:text-base">
+                Sell&nbsp;
+                <LeftArrow className="w-4 h-4" />
+              </h3>
             </span>
-            <span className="w-full h-12 my-1 bg-gray-200 rounded-sm flex justify-between items-center px-3">
-              <span className="flex justify-start items-center space-x-2">
-                <Bitcoin className="h-8 w-8" />
+            <span className="flex items-center justify-between w-full h-12 px-3 my-1 bg-gray-200 rounded-sm">
+              <span className="flex items-center justify-start space-x-2">
+                <Bitcoin className="w-8 h-8" />
                 <h4 className="text-xs md:text-sm">Bitcoin</h4>
               </span>
-              <DownArrow className="h-4 w-4" />
+              <DownArrow className="w-4 h-4" />
             </span>
             <p className="text-sm opacity-70">1 BTC=39,791.41 USD</p>
           </div>
           <div>
             <h3 className="text-sm font-medium md:text-base">Pay via</h3>
-            <span className="w-full h-12 my-1 bg-gray-200 rounded-sm flex justify-between items-center px-3">
+            <span className="flex items-center justify-between w-full h-12 px-3 my-1 bg-gray-200 rounded-sm">
               <h4 className="text-xs md:text-sm">Select payment method</h4>
-              <DownArrow className="h-4 w-4" />
+              <DownArrow className="w-4 h-4" />
             </span>
           </div>
         </div>

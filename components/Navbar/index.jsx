@@ -15,7 +15,7 @@ const Navbar = () => {
       {isMenuActive && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-white/70"></div>
       )}
-      <nav className="relative z-10 flex items-center justify-between w-screen px-5 py-3 md:py-4 md:px-10 bg-accent md:space-x-16">
+      <nav className="relative z-10 flex items-center justify-between w-full px-5 py-3 md:py-4 md:px-10 bg-accent md:space-x-16">
         <Link href="/" passHref>
           <a>
             <Logo className="w-10 h-10" />

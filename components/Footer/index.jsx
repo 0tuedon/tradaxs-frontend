@@ -6,7 +6,7 @@ import Support from "./Support";
 
 const Footer = () => {
   return (
-    <footer className="p-5 pt-10 mt-24 text-white bg-accent md:px-10">
+    <footer className="w-full p-5 pt-10 mt-24 text-white bg-accent md:px-10">
       <div className="max-w-3xl mx-auto">
         <div className="flex flex-col items-stretch justify-between mb-16 space-y-10 md:flex-row md:space-y-0">
           <Info />

@@ -1,5 +1,6 @@
 import NavLink from "./NavLink";
 import { AiOutlineClose } from "react-icons/ai";
+import Link from "next/link";
 
 const NavLinksCover = ({ isMenuActive, handle }) => {
   const paths = ["about us", "blog", "what we offer", "Create wallet"];
@@ -31,12 +32,11 @@ const NavLinksCover = ({ isMenuActive, handle }) => {
         {paths2.map((path, index) => {
           return (
             <li key={index}>
-              <NavLink
-                href={`/${path.split(" ").join("-")}`}
-                className="text-[0.8125rem] md:bg-white md:text-accent md:px-5 md:py-2 md:rounded-md capitalize hover:bg-white hover:text-accent inline-block w-full p-3 md:p-0"
-              >
-                {path}
-              </NavLink>
+              <Link href={`/${path.split(" ").join("-")}`} passHref>
+                <a className="text-[0.8125rem] md:bg-white md:text-accent md:px-5 md:py-2 md:rounded-md capitalize hover:bg-white hover:text-accent inline-block w-full p-3 md:p-0">
+                  {path}
+                </a>
+              </Link>
             </li>
           );
         })}
