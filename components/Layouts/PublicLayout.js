@@ -1,26 +1,15 @@
-import React from 'react'
+import React, { Children } from "react";
+import Footer from "../Footer";
+import Navbar from "../Navbar";
 
-
-export const SideBar =  ()=>{
-    return(
-
-        <div className=
-        {`bg-accent
-        max-w-[227px]
-        `}>
-
-        </div>
-    )
-}
-const PublicLayout = ({children}) => {
+const Layout = ({ children }) => {
   return (
-    <div className='flex '>
-        <SideBar/>
-        <div>
-            {children}
-        </div>
+    <div className="relative w-full min-h-screen overflow-hidden">
+      <Navbar />
+      <main>{children}</main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default PublicLayout
+export default Layout;

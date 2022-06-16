@@ -2,7 +2,7 @@ import Boundaries from "../components/Home/Sections/Boundaries";
 import Hero from "../components/Home/Sections/Hero";
 import StartTrading from "../components/Home/Sections/StartTrading";
 import Testimonials from "../components/Home/Sections/Testimonials";
-import Layout from "../components/Layout";
+import Layout from "../components/Layouts/PublicLayout";
 
 export default function Home() {
   return (
