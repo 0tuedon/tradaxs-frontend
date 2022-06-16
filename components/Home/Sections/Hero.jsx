@@ -1,12 +1,5 @@
 import Image from "next/image";
-import {
-  Hero_img,
-  Bitcoin,
-  Ethereum,
-  Zugacoin,
-  Dogecoin,
-  Group,
-} from "../../../assets/svg/";
+import { Hero_img, Group } from "../../../assets/svg/";
 import EmailForm from "../Form";
 
 const Hero = () => {
@@ -29,7 +22,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="flex flex-wrap items-center mt-10 justify-evenly">
-        <Image src={Group} alt="bitcoin" priority />
+        <Image src={Group} alt="crypto currenies" priority />
       </div>
     </section>
   );

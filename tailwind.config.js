@@ -7,7 +7,11 @@ module.exports = {
     extend: {
       colors: {
         accent: "#1B3593",
+<<<<<<< HEAD
        
+=======
+        bgray: "#EAEAEA"
+>>>>>>> 831554a3f76196fbe9f49c399567942a9b3a7600
       }
     },
   },

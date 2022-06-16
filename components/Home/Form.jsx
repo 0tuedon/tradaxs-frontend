@@ -33,7 +33,7 @@ const EmailForm = () => {
           </ErrorMessage>
           <button
             type="submit"
-            className="px-5 py-3 text-sm text-white rounded-md md:px-10 bg-accent"
+            className="px-5 py-3 text-sm font-medium text-white rounded-md md:px-10 bg-accent"
           >
             Get started
           </button>

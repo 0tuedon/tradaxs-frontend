@@ -1,6 +1,5 @@
-import Logo from "../../assets/svg/logo.svg";
+import Logo from "../../assets/icons/Logo";
 import Link from "next/link";
-import Image from "next/image";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useState } from "react";
 import NavLinksCover from "./NavLinksCover";
@@ -16,10 +15,10 @@ const Navbar = () => {
       {isMenuActive && (
         <div className="fixed top-0 left-0 w-screen h-screen bg-white/70"></div>
       )}
-      <nav className="relative z-10 flex items-center justify-between w-screen px-5 py-3 md:py-4 md:px-10 bg-accent md:space-x-16">
+      <nav className="relative z-10 flex items-center justify-between w-full px-5 py-3 md:py-4 md:px-10 bg-accent md:space-x-16">
         <Link href="/" passHref>
           <a>
-            <Image src={Logo} alt="Tradaxs" priority />
+            <Logo className="w-10 h-10" />
           </a>
         </Link>
         <NavLinksCover isMenuActive={isMenuActive} handle={handleToggle} />

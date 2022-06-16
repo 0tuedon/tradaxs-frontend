@@ -7,7 +7,7 @@ const Testimonials = () => {
       <h1 className="text-2xl font-semibold text-center md:text-3xl text-accent">
         Testimonials
       </h1>
-      <div className="grid grid-cols-2 gap-5 gap-y-14 md:gap-16 mt-20 lg:grid-cols-3">
+      <div className="grid grid-cols-1 gap-5 mt-20 sm:grid-cols-2 gap-y-14 md:gap-16 lg:grid-cols-3">
         {Array(6)
           .fill()
           .map((item, id) => {

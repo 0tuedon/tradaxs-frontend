@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const TestimonialCard = ({ data }) => {
   return (
-    <div className="relative px-4 py-5 bg-white rounded-md drop-shadow-md pt-10">
+    <div className="relative px-4 py-5 bg-white rounded-md shadow-md pt-10">
       <div className="absolute left-3 -top-8 h-16 w-16 rounded-full overflow-hidden">
         <Image
           src="/eye-for-ebony-aZzXKGcyWqk-unsplash.jpg"
