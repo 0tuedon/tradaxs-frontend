@@ -21,7 +21,7 @@ const EmailForm = () => {
           <Field
             name="email"
             type="email"
-            className="flex-1 p-3 pl-5 bg-[#F2F2F2] rounded-tl-md rounded-bl-lg outline-none"
+            className="flex-1 p-3 pl-5 bg-[#F2F2F2] w-full rounded-tl-md rounded-bl-lg outline-none"
             placeholder="Email address"
           />
           <ErrorMessage name="email">
@@ -33,7 +33,7 @@ const EmailForm = () => {
           </ErrorMessage>
           <button
             type="submit"
-            className="px-5 py-3 text-sm font-medium text-white rounded-md md:px-10 bg-accent"
+            className="px-5 py-3 text-xs md:text-sm font-medium text-white rounded-md md:px-10 bg-accent"
           >
             Get started
           </button>
