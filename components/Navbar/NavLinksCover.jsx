@@ -33,7 +33,7 @@ const NavLinksCover = ({ isMenuActive, handle }) => {
           return (
             <li key={index}>
               <Link href={`/${path.split(" ").join("-")}`} passHref>
-                <a className="text-[0.8125rem] md:bg-white md:text-accent md:px-5 md:py-2 md:rounded-md capitalize hover:bg-white hover:text-accent inline-block w-full p-3 md:p-0">
+                <a className="text-[0.8125rem] md:bg-white md:text-accent md:px-5 md:py-2 font-medium md:rounded-md capitalize hover:bg-white hover:text-accent inline-block w-full p-3 md:p-0">
                   {path}
                 </a>
               </Link>

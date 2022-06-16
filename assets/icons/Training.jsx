@@ -1,5 +1,3 @@
-import React from "react";
-
 const Training = ({ className }) => {
   return (
     <svg
