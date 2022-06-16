@@ -26,7 +26,9 @@ const Footer = () => {
               );
             })}
           </span>
-          <p>&copy; {new Date().getFullYear().toString()} Tradaxs</p>
+          <p className="text-sm md:text-base">
+            &copy; {new Date().getFullYear().toString()} Tradaxs
+          </p>
         </div>
       </div>
     </footer>
