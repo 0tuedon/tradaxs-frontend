@@ -14,8 +14,6 @@ export const SideBar =  ()=>{
         hidden
         md:flex
         md:flex-col
-       
-        
         gap-y-[40px]
         
         `}>
@@ -28,7 +26,7 @@ export const SideBar =  ()=>{
 }
 export const Navbar = ({title})=>{
 return(
-    <div className='bg-white px-[40px] w-[100%] min-h-[60px] flex'>
+    <div className='bg-white md:px-[40px] w-[100%] min-h-[60px] flex'>
       <TopBar title={title}/>
   
     </div>

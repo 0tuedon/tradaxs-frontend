@@ -22,7 +22,7 @@ const NavLink = ({ children, data }) => {
       className={`flex items-center 
     gap-x-[15px] 
     cursor-pointer
-    text-[18px]
+    text-[16px]
     hover:bg-white
    ${isActive ? "bg-white text-accent" : "text-white"}
     hover:text-accent
