@@ -1,18 +1,22 @@
-import Boundaries from "../components/Home/Sections/Boundaries";
-import Hero from "../components/Home/Sections/Hero";
-import StartTrading from "../components/Home/Sections/StartTrading";
-import Testimonials from "../components/Home/Sections/Testimonials";
-import Layout from "../components/Layouts/PublicLayout";
+import LandingFooter from "../components/Landing/Footer/LandingFooter";
+import HeroSection from "../components/Landing/Hero/HeroSection";
+import StartMining from "../components/Landing/Mining/StartMining";
+import Stats from "../components/Landing/Statistics/Stats";
+import WhyYouShould from "../components/Landing/Statistics/WhyYouShould";
+import Trade from "../components/Landing/Trade/Trade";
+import PublicLayout from "../components/Layouts/PublicLayout";
 
 export default function Home() {
   return (
-    <Layout>
-      <div className="p-5 md:px-10 md:pt-16">
-        <Hero />
-        <Boundaries />
-        <StartTrading />
-        <Testimonials />
-      </div>
-    </Layout>
+    <>
+      <PublicLayout>
+        <HeroSection />
+        <Stats/>
+        <WhyYouShould/>
+        <Trade/>
+        <StartMining/>
+        <LandingFooter/>
+      </PublicLayout>
+    </>
   );
 }
