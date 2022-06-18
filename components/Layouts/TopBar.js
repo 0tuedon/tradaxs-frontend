@@ -1,10 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
-import React,{useState} from "react";
+import React, { useState } from "react";
 import { AiOutlineMenu } from "react-icons/ai";
 import PropTypes from "prop-types";
+import Link from "next/link";
 
 const TopBar = ({ title }) => {
-    const [isMenuActive, setMenuActive] = useState(false);
+  const [isMenuActive, setMenuActive] = useState(false);
   const handleToggle = () => {
     setMenuActive(!isMenuActive);
   };
@@ -13,16 +14,10 @@ const TopBar = ({ title }) => {
     <>
       <div className="md:flex  hidden justify-between w-[100%]">
         {/* left side */}
-        <div
-          className="flex 
-        gap-x-[71px]
-        items-center
-        justify-between
-        "
-        >
+        <div className="flex gap-x-[71px] items-center justify-between">
           <h5
             className="text-titlegray
-            text-[24px]
+            text-lg
             font-medium
             "
           >
@@ -31,7 +26,7 @@ const TopBar = ({ title }) => {
           {/* end of left side */}
           <div className="flex items-center gap-x-[10px]">
             <h6
-              className="text-[18px] 
+              className="text-sm
             text-accent
             font-medium"
             >
@@ -40,7 +35,7 @@ const TopBar = ({ title }) => {
             {/* line seperation */}
             <img src="/icons/line.svg" alt="line" />
             <h6
-              className="text-[18px] 
+              className="text-sm
             text-subgray
             font-medium"
             >
@@ -51,12 +46,11 @@ const TopBar = ({ title }) => {
         {/* Right side */}
         <div
           className="px-[2px] 
-      gap-x-[40px]
+      space-x-5
       flex items-center"
         >
           <div
-            className="flex
-        gap-x-[7px]
+            className="flex gap-x-[7px]
         items-center"
           >
             <img
@@ -65,9 +59,7 @@ const TopBar = ({ title }) => {
               src="/icons/credit-card.svg"
               alt="credit-card"
             />
-            <p className="text-[18px] text-dark font-medium">
-              Connect to wallet
-            </p>
+            <p className="text-sm text-dark font-medium">Connect to wallet</p>
           </div>
           {/* Avatar */}
           <div className="cursor-pointer">
@@ -77,14 +69,18 @@ const TopBar = ({ title }) => {
         </div>
       </div>
       {/* Smaller Screens */}
-      <div className="flex md:hidden 
+      <div
+        className="flex md:hidden 
       items-center
-      px-[30px] justify-between bg-accent w-screen">
+      px-[30px] justify-between bg-accent w-screen"
+      >
         {/* left side */}
         <div className="">
-          <a href="/dashboard">
-            <img src="/icons/tradaxs.svg" alt="Tradaxs logo" />
-          </a>
+          <Link href="/dashboard" passHref>
+            <a>
+              <img src="/icons/tradaxs.svg" alt="Tradaxs logo" />
+            </a>
+          </Link>
         </div>
         {/* Hamburger */}
         <button className="md:hidden" onClick={handleToggle}>
