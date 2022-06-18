@@ -1,4 +1,6 @@
 import React from "react";
+import { AiOutlineArrowDown, AiOutlineArrowUp } from "react-icons/ai";
+import Chart from "../../assets/icons/Chart";
 
 const MarketCap = () => {
   return (
@@ -11,6 +13,11 @@ const MarketCap = () => {
             currency: "USD",
           }).format(12418.42)}
         </h2>
+        <span className="relative w-fit">
+          <Chart className="w-14 h-6" stroke="#35DC94" />
+          <p className="text-xs text-[#35DC94]">+10</p>
+          <AiOutlineArrowUp className="w-4 h-4 text-[#35DC94] absolute top-7 right-0" />
+        </span>
       </span>
     </div>
   );

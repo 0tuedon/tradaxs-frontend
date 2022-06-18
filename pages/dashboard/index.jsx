@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { useRouter } from "next/router";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import CirculatingSupply from "../../components/Dashboard/CirculatingSupply";
 import FullyDiluted from "../../components/Dashboard/FullyDiluted";
 import LimitCard from "../../components/Dashboard/LimitCard";
@@ -11,8 +11,9 @@ import WalletBalance from "../../components/Dashboard/WalletBalance";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 
 const Profile = () => {
-  let tag = useRouter().asPath.split("#")[1];
-  console.log(tag);
+  let activeTag = useRouter().asPath.split("#")[1] || "portfolio";
+  let [tag, setTag] = useState(activeTag);
+
   const tabLinks = [
     "portfolio",
     "watchlist",
@@ -43,11 +44,7 @@ const Profile = () => {
                   return (
                     <li key={i} className="inline-block">
                       <Link href={`#${link}`} passHref>
-                        <a
-                          className={`text-xs ${
-                            tag === link ? "text-accent" : "text-gray-400"
-                          } capitalize hover:text-accent font-medium`}
-                        >
+                        <a className="text-xs text-gray-400 capitalize hover:text-accent font-medium">
                           {link}
                         </a>
                       </Link>
@@ -55,14 +52,21 @@ const Profile = () => {
                   );
                 })}
               </ul>
-              <div className="shadow-md h-60">
+
+              <div className="">
                 <Table />
               </div>
             </div>
             <div className="max-w-xs">
               <LimitCard />
               <div className="mt-3">
+                <h3 className="font-medium text-sm opacity-70 mb-2">News</h3>
                 <NewsCard />
+                <Link href="/" passHref>
+                  <a className="text-xs opacity-70 transition-all duration-200 hover:underline mt-3 w-fit block mr-0 ml-auto">
+                    Show all news
+                  </a>
+                </Link>
               </div>
             </div>
           </div>

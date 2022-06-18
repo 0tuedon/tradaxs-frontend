@@ -37,7 +37,7 @@ export const Navbar = ({ title }) => {
 
 const AuthLayout = ({ children, title }) => {
   return (
-    <div className="flex w-full max-w-full h-screen max-h-screen">
+    <div className="flex w-full max-w-full h-screen max-h-screen bg-dashboardGray">
       <SideBar />
       <div className="w-full h-full overflow-auto">
         <Navbar title={title} />
