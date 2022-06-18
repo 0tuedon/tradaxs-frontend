@@ -3,7 +3,7 @@ import { route } from "next/dist/server/router";
 export const NavigationLinks = [
   {
     name: "Profile",
-    route: "/dashboard",
+    route: "/profile",
     activeLogo: "/icons/profile.svg",
     logo: "/icons/inactive-profile.svg",
   },

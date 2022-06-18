@@ -16,9 +16,13 @@ module.exports = {
         transWhite:"rgba(255, 255, 255, 0.1)",
         textBlue:"#0D0D2B",
         lightBlue:"#3671E9",
-        statsGray:"#E0E0E0"
-      }
+        statsGray:"#E0E0E0",
+        titlegray: "#4C506B",
+        subgray: "#828282",
+        dark: "#2F2F2F",
+        dashboardGray: "#FCFCFC",
+      },
     },
   },
   plugins: [],
-}
+};

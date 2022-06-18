@@ -37,13 +37,13 @@ const NavLink = ({ children, data }) => {
       onMouseOut={changeImagetoActive}
     >
       <Image
-        width={"30px"}
+        width={"25px"}
         height={"33px"}
         src={hovering || isActive ? data.activeLogo : data.logo}
         alt={data.name}
       />
 
-      <p>{children}</p>
+      <p className="text-[13px]">{children}</p>
     </div>
   );
 };
