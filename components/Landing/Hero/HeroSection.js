@@ -4,7 +4,10 @@ import HeroLeft from "./HeroLeft";
 
 const HeroSection = () => {
   return (
-    <div className="flex mt-[100px] px-[120px]">
+    <div className="flex flex-col md:flex-row 
+    mt-[30px]
+    px-[10px]
+    md:mt-[100px] md:px-[120px]">
 
       {/* Left side  */}
       <HeroLeft />
