@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Image from 'next/image'
 import { AiOutlineMenu } from "react-icons/ai";
 import Logo from "../../../assets/icons/Logo";
 import { PublicNavLink } from "../../../data/tradaxs";
@@ -28,7 +29,10 @@ const NavBar = () => {
 
        
         <div className="">
-          <img src="/icons/divider.svg" alt="divider" />
+          <Image
+          width={"24px"}
+          height={'4px'}
+          src="/icons/divider.svg" alt="divider" />
         </div>
         <NavLink
           route={"/register"}
