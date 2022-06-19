@@ -2,9 +2,14 @@ import React from "react";
 import Image from "next/image";
 const WhyYouShould = () => {
   return (
-    <div className="flex mt-[30px] items-center justify-between px-[100px]">
+    <div
+      className="flex flex-col 
+      px-[10px]
+      md:flex-row mt-[30px] 
+    md:items-center mb-[20px] md:justify-between md:px-[100px]"
+    >
       {/* Left Side  */}
-      <div>
+      <div className="order-2 md:order-1">
         <Image
           width={"650px"}
           height={"473px"}
@@ -18,7 +23,8 @@ const WhyYouShould = () => {
         className="flex  
       gap-y-[24px]
       justify-center
-      text-white flex-col w-2/4 "
+      order-1 md:order-2
+      text-white flex-col md:w-2/4 "
       >
         <h2
           className="font-semibold 

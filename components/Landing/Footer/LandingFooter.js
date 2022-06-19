@@ -6,9 +6,14 @@ import CopyRights from "./CopyRights";
 
 const LandingFooter = () => {
   return (
-    <div className="flex flex-col gap-y-[120px] mt-[60px] px-[100px] ">
+    <div className="flex flex-col 
+    gap-y-[120px] 
+    mt-[30px]
+    md:mt-[60px] 
+    px-[10px]
+    md:px-[100px] ">
       {/* fotter wi */}
-      <div className="flex justify-between">
+      <div className="flex flex-col gap-y-[30px] md:flex-row justify-between">
         <div className="flex items-start gap-x-3">
           <Logo className={"w-[40px]"} />
           <h5 className="text-white text-[18px] font-semibold">TRADAXS</h5>

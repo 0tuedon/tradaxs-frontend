@@ -3,11 +3,11 @@ import ArrowRight from "../../../assets/icons/ArrowRight";
 
 const HeroLeft = () => {
   return (
-    <div className="flex-col w-[50%] gap-y-[22px]  flex">
+    <div className="flex-col md:w-[50%] gap-y-[22px]  flex">
       {/*Black Friday */}
       <div
         className="
-      max-w-[365px] items-center h-[40px] 
+      md:max-w-[365px] items-center h-[40px] 
       text-white flex rounded-[32px]
        px-[11px] justify-between 
        bg-transWhite "
@@ -15,7 +15,7 @@ const HeroLeft = () => {
         <div
           className="bg-white  z-10 text-textBlue  
         rounded-[20px] 
-        text-[16px]
+        text-[14px]
         font-medium
         py-[4px] 
         px-[16px]"
@@ -29,7 +29,7 @@ const HeroLeft = () => {
       </div>
       {/* Heading Sub text */}
       <div className="text-white  font-semibold">
-        <h1 className="text-[60px]">
+        <h1 className=" text-[40px] md:text-[60px]">
           {"Fastest & secure platform to invest in crypto"}
         </h1>
       </div>

@@ -86,20 +86,20 @@ export const CryptoCardData = [
     bg: "bg-landingBlue",
   },
   {
-    logo: "/icons/bitcoin.svg",
-    name: "Bitcoin",
+    logo: "/icons/etherum.svg",
+    name: "Ethereum",
     sub: "BTC",
     desc: "Digital currency in which a record of transactions is maintained.",
     type: "mining",
-    bg: "none",
+    bg: false,
   },
   {
-    logo: "/icons/bitcoin.svg",
-    name: "Bitcoin",
+    logo: "/icons/litecoin.svg",
+    name: "LiteCoin",
     sub: "BTC",
     desc: "Digital currency in which a record of transactions is maintained.",
     type: "mining",
-    bg: "none",
+    bg: false,
   },
 ];
 

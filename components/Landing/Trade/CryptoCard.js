@@ -1,20 +1,22 @@
 import React from "react";
 import Image from "next/image";
-const CryptoCard = ({bg}) => {
+
+const CryptoCard = ({bg,data}) => {
   return (
     <div className={`flex 
     w-[370px] flex-col ${bg}
-     ${bg?'':'shadow-[0px 40px 40px 0px #391777]'}
+     ${bg?'text-white':'shadow-xl text-landingBlue '}
      min-h-[433px]
      rounded-[16px]
      items-center
      gap-y-[20px]
      py-[48px]
-     text-white
+     
      `}>
       {/* Image first */}
       <div className="mb-[28px]">
-        <Image src={"/icons/bitcoin.svg"} 
+        <Image 
+        src={data.logo} 
         alt={"coin"}
         width={"80px"}
         height={"80px"}
@@ -38,7 +40,8 @@ const CryptoCard = ({bg}) => {
         <Image 
         width={"32px"}
         height={"32px"}
-        src={"/icons/small-arrow.svg"}   alt={"arrow"} />  
+        src={"/icons/small-arrow.svg"}   
+        alt={"arrow"} />  
         </button>
     </div>
   );

@@ -4,7 +4,7 @@ const CopyRights = () => {
   return (
     <div className='flex text-white mb-[40px] justify-between'>
         <h6>
-        ©2021 TRADAXS. All rights reserved
+        ©2022 TRADAXS. All rights reserved
         </h6>
     </div>
   )
