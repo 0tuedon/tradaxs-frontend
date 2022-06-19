@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 @layer base {
-  html {
+  html,body {
     font-family: "Poppins", sans-serif;
   }
 }

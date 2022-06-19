@@ -1,0 +1,54 @@
+import React from "react";
+import Image from "next/image";
+import Logo from "../../../assets/icons/Logo";
+import { FooterPaymentLinks, FooterQuickLinks, FooterResourceLinks } from "../../../data/tradaxs";
+import CopyRights from "./CopyRights";
+
+const LandingFooter = () => {
+  return (
+    <div className="flex flex-col gap-y-[120px] mt-[60px] px-[100px] ">
+      {/* fotter wi */}
+      <div className="flex justify-between">
+        <div className="flex items-start gap-x-3">
+          <Logo className={"w-[40px]"} />
+          <h5 className="text-white text-[18px] font-semibold">TRADAXS</h5>
+        </div>
+        <div className="flex">
+          <div
+            className="flex w-[200px]
+             gap-x[35px] text-white flex-col
+             gap-y-[10px]
+             "
+          >
+            <h6 className="font-medium text-[20px]">Quick Link</h6>
+            {FooterQuickLinks.map((data) => (
+              <p key={data.name}>{data.name}</p>
+            ))}
+          </div>
+          <div className="text-white flex flex-col  gap-y-[10px]">
+            <h6 className="font-medium text-[20px]">Resources</h6>
+            {FooterResourceLinks.map((data) => (
+              <p key={data.name}>{data.name}</p>
+            ))}
+          </div>
+        </div>
+        {/* Payments accepted */}
+        <div className="text-[32px] flex flex-col font-medium text-white w-[355px]">
+          <h5>We accept the following Payments</h5>
+          <div className="flex mt-[40px]">
+          {FooterPaymentLinks.map(data=><Image
+          width={"86px"}
+          height={"54px"}
+          key={data.path}
+          alt={data.path}
+          src={data.path}/>)}
+            </div>
+        </div>
+      </div>
+
+      <CopyRights />
+    </div>
+  );
+};
+
+export default LandingFooter;
