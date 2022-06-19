@@ -41,16 +41,20 @@ export const NavigationLinks = [
 
 export const PublicNavLink = [
   {
-    name: "Products",
-    route: "/products",
+    name: "About Us",
+    route: "/about-us",
   },
   {
-    name: "About",
-    route: "/about",
+    name: "Blog",
+    route: "#blog",
   },
   {
-    name: "Contact",
-    route: "#contact",
+    name: "What We Offer",
+    route: "#offer",
+  },
+  {
+    name: "Create Wallet",
+    route: "#wallet",
   },
   {
     name: "Login",
@@ -88,8 +92,8 @@ export const CryptoCardData = [
   {
     logo: "/icons/etherum.svg",
     name: "Ethereum",
-    sub: "BTC",
-    desc: "Digital currency in which a record of transactions is maintained.",
+    sub: "ETH",
+    desc: "Blockchain technology to create and run decentralized digital applications.",
     type: "mining",
     bg: false,
   },

@@ -4,17 +4,19 @@ import Image from "next/image";
 const CryptoCard = ({bg,data}) => {
   return (
     <div className={`flex 
-    w-[370px] flex-col ${bg}
-     ${bg?'text-white':'shadow-xl text-landingBlue '}
+    w-[350px]
+    md:w-[370px] flex-col ${bg}
+     ${bg?'text-white':'shadow-2xl text-landingBlue '}
      min-h-[433px]
      rounded-[16px]
      items-center
      gap-y-[20px]
+     px-[15px]
      py-[48px]
      
      `}>
       {/* Image first */}
-      <div className="mb-[28px]">
+      <div className="flex items-center justify-center mb-[28px]">
         <Image 
         src={data.logo} 
         alt={"coin"}
@@ -24,12 +26,12 @@ const CryptoCard = ({bg,data}) => {
       </div>
 
       <div className="flex">
-        <h4 className="font-semibold text-[32px] ">Bitcoin</h4>
-        <p className="text-[18px] font-medium">BTC</p>
+        <h4 className="font-semibold text-[32px] ">{data.name}</h4>
+        <p className="text-[18px] font-medium">{data.sub}</p>
       </div>
       {/* Text Sub */}
       <div className="text-center">
-        <p>Digital currency in which a record of transactions is maintained.</p>
+        <p>{data.desc}</p>
       </div>
 
       {/* Button for the crypto card */}

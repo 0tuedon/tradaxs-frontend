@@ -24,7 +24,7 @@ const HeroLeft = () => {
         </div>
 
         <div>
-          <p>For the Black Friday weekend</p>
+          <p className="truncate tex">For the Black Friday weekend</p>
         </div>
       </div>
       {/* Heading Sub text */}
