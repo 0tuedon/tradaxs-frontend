@@ -2,7 +2,7 @@ import React from "react";
 
 const CirculatingSupply = () => {
   return (
-    <div className="shadow-md p-3 rounded-md flex justify-between flex-col items-start">
+    <div className="shadow-md p-3 rounded-md flex justify-between flex-col items-start bg-white">
       <p className="opacity-70 text-sm mb-5">Circulating Supply</p>
       <span className="flex justify-between items-center w-full">
         <h2 className="text-base md:text-lg">
