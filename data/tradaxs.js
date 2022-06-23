@@ -133,23 +133,28 @@ export const FooterQuickLinks = [
 export const FooterResourceLinks = [
   {
     name: "Download Whitepaper",
+    route: "#",
   },
   {
     name: " Smart Token",
+    route: "#",
   },
   {
     name: "Blockchain Explorer",
+    route: "#",
   },
   {
     name: "Crypto Api",
+    route: "#",
   },
   {
     name: "Interest",
+    route: "#",
   },
 ];
 
 export const FooterPaymentLinks = [
-  {path:"/icons/visa-square.svg"},
-  {path:"/icons/mastercard-square.svg"},
-  {path:"/icons/bitcoin-square.svg"},
-]
+  { path: "/icons/visa-square.svg" },
+  { path: "/icons/mastercard-square.svg" },
+  { path: "/icons/bitcoin-square.svg" },
+];

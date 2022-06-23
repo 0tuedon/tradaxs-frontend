@@ -3,7 +3,7 @@ import React from "react";
 
 const NewsCard = () => {
   return (
-    <div className="shadow-md rounded-md overflow-hidden">
+    <div className="shadow-md rounded-md overflow-hidden bg-white">
       <div className="relative h-32 w-full">
         <Image
           src="/icons8-team-yTwXpLO5HAA-unsplash.jpg"

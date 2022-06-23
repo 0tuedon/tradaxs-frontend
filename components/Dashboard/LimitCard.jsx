@@ -4,7 +4,7 @@ import ProgressBar from "react-customizable-progressbar";
 
 const LimitCard = () => {
   return (
-    <div className="shadow-md p-3 rounded-md flex justify-between items-center">
+    <div className="shadow-md p-3 rounded-md flex justify-between items-center bg-white">
       <span>
         <p className="opacity-70 mb-3 text-sm">
           You have reached 70% of your daily deposit of $10,000

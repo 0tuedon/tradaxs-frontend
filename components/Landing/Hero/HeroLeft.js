@@ -28,7 +28,7 @@ const HeroLeft = () => {
         </div>
       </div>
       {/* Heading Sub text */}
-      <div className="text-white  font-semibold">
+      <div className="font-semibold text-white">
         <h1 className=" text-[40px] md:text-[60px]">
           {"Fastest & secure platform to invest in crypto"}
         </h1>
@@ -40,7 +40,8 @@ const HeroLeft = () => {
         </p>
       </div>
       {/* Try fo Freee */}
-      <div className="flex 
+      <div
+        className="flex 
       item-center
       justify-center
       bg-lightBlue 
@@ -49,13 +50,18 @@ const HeroLeft = () => {
      gap-x-[10px]
       rounded-[32px]
       py-[14px]
-      ">
-        <p className="
+      "
+      >
+        <p
+          className="
         text-[18px]
         font-medium
-        d-inline-block">Try for free</p>
+        inline-block"
+        >
+          Get started
+        </p>
         {/* Arrow Right */}
-        <ArrowRight/>
+        <ArrowRight />
       </div>
     </div>
   );
