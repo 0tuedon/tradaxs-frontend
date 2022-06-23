@@ -4,7 +4,7 @@ import Statistic from "../../../assets/svg/Statistic.svg";
 
 const DetailedStats = () => {
   return (
-    <div className="flex flex-col-reverse items-start justify-between p-10 md:flex-row md:py-10 md:pl-0 md:pr-20 md:mb-20">
+    <div className="flex flex-col-reverse items-start justify-between p-10 md:space-x-3 md:flex-row md:py-10 md:pl-0 md:pr-20 md:mb-20">
       <div>
         <Image src={Statistic} alt="chart" />
       </div>
