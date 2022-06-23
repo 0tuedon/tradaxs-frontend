@@ -1,7 +1,7 @@
 import React from "react";
 import DetailedStats from "./DetailedStats";
 import GrowProfit from "./GrowProfit";
-import Invest from "./invest";
+import Invest from "./Invest";
 
 const index = () => {
   return (
