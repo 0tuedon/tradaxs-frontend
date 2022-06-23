@@ -4,7 +4,7 @@ import Chart from "../../assets/icons/Chart";
 
 const MarketCap = () => {
   return (
-    <div className="shadow-md p-3 rounded-md flex justify-between flex-col items-start h-full">
+    <div className="shadow-md p-3 rounded-md flex justify-between flex-col items-start h-full bg-white">
       <p className="opacity-70 text-sm mb-5">Market Cap</p>
       <span className="flex justify-between items-center w-full">
         <h2 className="text-base md:text-lg">
