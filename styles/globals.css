@@ -5,7 +5,42 @@
 @tailwind utilities;
 
 @layer base {
-  html,body {
+  html,
+  body {
     font-family: "Poppins", sans-serif;
   }
+}
+
+.dashboard {
+  background: radial-gradient(
+    123.22% 129.67% at 100.89% -5.6%,
+    #0c4dae 0%,
+    #17153a 100%
+  );
+}
+
+.sidebar {
+  background: linear-gradient(
+    180deg,
+    rgba(12, 77, 174, 0.65) 0%,
+    rgba(27, 25, 66, 0.85) 57.44%,
+    #17163b 100%
+  );
+}
+
+.notification {
+  background: linear-gradient(136.67deg, #ff409a 8.34%, #c438ef 95.26%);
+  mix-blend-mode: normal;
+  box-shadow: 0px 4px 31px #ba1358;
+}
+
+.walletCard {
+  background: linear-gradient(
+    135deg,
+    #40ddff 0%,
+    #14bae3 19.24%,
+    #13b1e6 68.64%,
+    #11aadf 81.77%,
+    #0b98c5 100%
+  );
 }
