@@ -13,8 +13,8 @@ const HeroSection = () => {
       <HeroLeft />
       <div>
         <Image
-          width={"580px"}
-          height={"505px"}
+          width={"684px"}
+          height={"463px"}
           src={"/image/hero.png"}
           alt={"hero"}
         />

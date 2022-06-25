@@ -20,6 +20,7 @@ const LimitCard = () => {
         trackStrokeWidth={5}
         strokeColor="#1B3593"
         className="relative"
+      
       >
         <span className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
           <h4 className="font-medium">70%</h4>

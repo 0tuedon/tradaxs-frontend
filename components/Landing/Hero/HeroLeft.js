@@ -4,39 +4,17 @@ import ArrowRight from "../../../assets/icons/ArrowRight";
 const HeroLeft = () => {
   return (
     <div className="flex-col md:w-[50%] gap-y-[22px]  flex">
-      {/*Black Friday */}
-      <div
-        className="
-      md:max-w-[365px] items-center h-[40px] 
-      text-white flex rounded-[32px]
-       px-[11px] justify-between 
-       bg-transWhite "
-      >
-        <div
-          className="bg-white  z-10 text-textBlue  
-        rounded-[20px] 
-        text-[14px]
-        font-medium
-        py-[4px] 
-        px-[16px]"
-        >
-          <p>75% Save</p>
-        </div>
-
-        <div>
-          <p className="truncate tex">For the Black Friday weekend</p>
-        </div>
-      </div>
+     
       {/* Heading Sub text */}
       <div className="font-semibold text-white">
         <h1 className=" text-[40px] md:text-[60px]">
-          {"Fastest & secure platform to invest in crypto"}
+          {"Learn and trade your crypto with tradaxs"}
         </h1>
       </div>
       <div className="text-white">
         <p>
-          Buy and sell cryptocurrencies, trusted by 10M wallets with over $30
-          billion in transactions.
+        Get trained and exchange digital currencies using 
+        different payment methods with us. Create your tradax account to begin
         </p>
       </div>
       {/* Try fo Freee */}
