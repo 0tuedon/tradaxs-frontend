@@ -1,41 +1,39 @@
-import { route } from "next/dist/server/router";
+import { MdDashboard } from "react-icons/md";
+import { FaWallet, FaPeopleArrows } from "react-icons/fa";
+import { BsMessenger } from "react-icons/bs";
+import { RiAccountPinCircleFill } from "react-icons/ri";
+import { GiTrade } from "react-icons/gi";
 
 export const NavigationLinks = [
   {
-    name: "Profile",
-    route: "/profile",
-    activeLogo: "/icons/profile.svg",
-    logo: "/icons/inactive-profile.svg",
+    name: "Dashboard",
+    route: "/dashboard",
+    Icon: MdDashboard,
   },
   {
-    name: "Swap",
-    route: "/swap",
-    activeLogo: "/icons/swap.svg",
-    logo: "/icons/inactive-swap.svg",
+    name: "Wallet",
+    route: "/wallet",
+    Icon: FaWallet,
   },
   {
-    name: "Currency Ex",
-    route: "/currency-ex",
-    activeLogo: "/icons/currency-ex.svg",
-    logo: "/icons/inactive-currency-ex.svg",
+    name: "Message",
+    route: "/message",
+    Icon: BsMessenger,
   },
   {
-    name: "Partner",
-    route: "/partner",
-    activeLogo: "/icons/partners.svg",
-    logo: "/icons/inactive-partner.svg",
+    name: "P2P",
+    route: "/p2p",
+    Icon: FaPeopleArrows,
   },
   {
-    name: "Training",
-    route: "/training",
-    activeLogo: "/icons/training.svg",
-    logo: "/icons/inactive-training.svg",
+    name: "Trade",
+    route: "/trade",
+    Icon: GiTrade,
   },
   {
-    name: "Account Mgt",
+    name: "Account setting",
     route: "/account-mgt",
-    activeLogo: "/icons/account-mgt.svg",
-    logo: "/icons/inactive-account-mgt.svg",
+    Icon: RiAccountPinCircleFill,
   },
 ];
 
