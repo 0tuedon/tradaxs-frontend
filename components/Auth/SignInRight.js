@@ -1,9 +1,10 @@
 import Link from 'next/link'
 import React from 'react'
+import SignInForm from './SignInForm'
 
 import SignUpForm from './SignUpForm'
 
-const SignupRight = () => {
+const SignInRight = () => {
   return (
     <div className='flex 
     px-[80px]
@@ -35,24 +36,24 @@ const SignupRight = () => {
                         </span> 
                 </h5>
                 <h5 className='text-[35px] md:text-[55px] font-medium'>
-                    Sign up
+                    Sign in
                 </h5>
                 </div>
                 <div>
                     <p
                     className='text-grayText text-[13px] leading-[20px]'
-                    >Have an Account?</p>
+                    >Don&apos;t have an Account?</p>
                     <a className="text-buttonBlue ">
-                        Sign In
+                        Sign Up
                     </a>
                 </div>
              
             </div>
             {/* Form Components itself */}
-            <SignUpForm/>
+            <SignInForm/>
         </div>
     </div>
   )
 }
 
-export default SignupRight
+export default SignInRight

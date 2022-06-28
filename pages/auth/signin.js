@@ -1,4 +1,5 @@
 import React from 'react'
+import SignInRight from '../../components/Auth/SignInRight'
 import SignupLeft from '../../components/Auth/SignupLeft'
 import SignupRight from '../../components/Auth/SignupRight'
 import PreAuth from '../../components/Layouts/PreAuth'
@@ -12,7 +13,7 @@ const Signin = () => {
   scrollbar
   `}>
     <SignupLeft/>
-    <SignupRight/>
+    <SignInRight/>
   </PreAuth>
   )
 }

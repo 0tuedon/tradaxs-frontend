@@ -28,7 +28,8 @@ module.exports = {
         buttonBlue:"#0C4DAE",
         grayText:"#8D8D8D",
         borderShade:"#ADADAD",
-        gray2:"#808080"
+        gray2:"#808080",
+        lightBlue:"#4285F4"
       },
     },
   },

@@ -36,7 +36,7 @@ const SignUpForm = () => {
           flex-col">
             <label>
 
-                Full Name
+                Email
             </label>
             <input
             className="border border-borderShade 
@@ -48,7 +48,7 @@ const SignUpForm = () => {
             rounded-[9px]
             text-gray2
             focus:outline-buttonBlue"
-            placeholder="Full Name"
+            placeholder="Email"
             />
           </div>
         </div>
@@ -64,7 +64,7 @@ const SignUpForm = () => {
           flex-col">
             <label>
 
-                Full Name
+                Username
             </label>
             <input
             className="border border-borderShade 
@@ -75,7 +75,7 @@ const SignUpForm = () => {
             rounded-[9px]
             text-gray2
             focus:outline-buttonBlue"
-            placeholder="Full Name"
+            placeholder="username"
             />
           </div>
           {/* email */}
@@ -85,7 +85,7 @@ const SignUpForm = () => {
           flex-col">
             <label>
 
-                Full Name
+                BVN
             </label>
             <input
             className="border border-borderShade 
@@ -97,7 +97,7 @@ const SignUpForm = () => {
             rounded-[9px]
             text-gray2
             focus:outline-buttonBlue"
-            placeholder="Full Name"
+            placeholder="BVN"
             />
           </div>
         </div>
@@ -112,7 +112,7 @@ const SignUpForm = () => {
           flex-col">
             <label>
 
-                Full Name
+                Contact Number
             </label>
             <input
             className="border border-borderShade 
@@ -123,7 +123,7 @@ const SignUpForm = () => {
             rounded-[9px]
             text-gray2
             focus:outline-buttonBlue"
-            placeholder="Full Name"
+            placeholder="Contact Number"
             />
           </div>
           {/* email */}
@@ -133,7 +133,7 @@ const SignUpForm = () => {
           flex-col">
             <label>
 
-                Full Name
+            Password
             </label>
             <input
             className="border border-borderShade 
@@ -141,11 +141,10 @@ const SignUpForm = () => {
             md:w-[217px]
             w-4/4
             px-[10px]
-
             rounded-[9px]
             text-gray2
             focus:outline-buttonBlue"
-            placeholder="Full Name"
+            placeholder="Password"
             />
           </div>
         </div>
