@@ -246,6 +246,7 @@ const SignUpForm = () => {
             <label>Password</label>
             <input
               name={"password"}
+              type={"password"}
               disabled={isLoading}
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
