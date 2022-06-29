@@ -32,7 +32,7 @@ const NavLinksCover = ({ isMenuActive, handle }) => {
         })}
         <li >
           <NavLink
-            href={`/register`}
+            href={`/auth/signup`}
             className="text-[0.8125rem]
              transition-all duration-200 
              md:hover:underline decoration-2 
