@@ -229,7 +229,6 @@ const SignUpForm = () => {
             focus:outline-buttonBlue"
               placeholder="Contact Number"
             />
-
             {Formik.errors.phone && Formik.touched.phone && (
               <p className="text-red-500 font-italic mt-[3px]">
                 {Formik.errors.phone}
