@@ -2,6 +2,7 @@ import Link from "next/link";
 import React, { Suspense } from "react";
 import * as Yup from 'yup'
 import { useFormik } from "formik";
+import { paths } from "../../api/paths";
 
 const SignInForm = () => {
     // Formik for signin
@@ -40,6 +41,7 @@ const SignInForm = () => {
           >
             <label>Enter your username or email address</label>
             <input
+            name="email"
               className="border 
             border-borderShade 
             h-[50px]
@@ -53,6 +55,11 @@ const SignInForm = () => {
               onChange={Formik.handleChange}
               onBlur={Formik.handleBlur}
             />
+            {Formik.errors.email && Formik.touched.email && (
+              <p className="text-red-500 font-italic mt-[3px]">
+                {Formik.errors.email}
+              </p>
+            )}
           </div>
           {/* email */}
 
@@ -64,6 +71,7 @@ const SignInForm = () => {
           >
             <label>Enter your Password</label>
             <input
+            name="password"
               className="border border-borderShade 
             h-[50px]
           
@@ -77,13 +85,15 @@ const SignInForm = () => {
               onChange={Formik.handleChange} 
               onBlur={Formik.handleBlur}
             />
+            {Formik.errors.password && Formik.touched.password && (
+              <p className="text-red-500 font-italic mt-[3px]">
+                {Formik.errors.password}
+              </p>
+            )}
           </div>
-
-          
                   {/* Forgot password */}
-
         <div className="flex justify-end mt-[5px]">
-            <Link href={"/auth/signin"}>
+            <Link href={paths.SIGNIN}>
             <a className="text-lightBlue">
                 Forgot Password
             </a>

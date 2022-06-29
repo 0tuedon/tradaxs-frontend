@@ -56,7 +56,7 @@ export const PublicNavLink = [
   },
   {
     name: "Login",
-    route: "/login",
+    route: "/auth/signin",
   },
 ];
 
