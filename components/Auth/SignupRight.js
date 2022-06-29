@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import { paths } from '../../api/paths'
 
 import SignUpForm from './SignUpForm'
 
@@ -42,9 +43,12 @@ const SignupRight = () => {
                     <p
                     className='text-grayText text-[13px] leading-[20px]'
                     >Have an Account?</p>
+                    <Link href={paths.SIGNIN} >
                     <a className="text-buttonBlue ">
                         Sign In
                     </a>
+                    </Link>
+                    
                 </div>
              
             </div>
