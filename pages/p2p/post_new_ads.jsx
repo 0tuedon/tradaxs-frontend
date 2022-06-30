@@ -57,6 +57,7 @@ const Index = () => {
                 setFirst={setFirstActive}
                 setSecond={setSecondActive}
                 setThird={setThirdActive}
+                third={thirdActive}
                 className={`max-w-2xl mx-auto ${
                   thirdActive ? "block" : "hidden"
                 }`}

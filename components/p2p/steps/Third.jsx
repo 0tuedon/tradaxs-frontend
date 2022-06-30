@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { TbWorld } from "react-icons/tb";
 
-const Third = ({ setFirst, setSecond, setThird, className }) => {
+const Third = ({ setFirst, setSecond, setThird, third, className }) => {
   let data = JSON.parse(localStorage.getItem("thirdProcess"));
   let [region, setRegion] = useState(data?.region || "");
   const handle = (e) => {
@@ -60,7 +60,12 @@ const Third = ({ setFirst, setSecond, setThird, className }) => {
               htmlFor="completed"
               className="flex items-center justify-start gap-1"
             >
-              <input type="checkbox" name="completed" id="completed" required />
+              <input
+                type="checkbox"
+                name="completed"
+                id="completed"
+                required={third}
+              />
               Completed KYC
             </label>
             <label
@@ -71,7 +76,7 @@ const Third = ({ setFirst, setSecond, setThird, className }) => {
                 type="checkbox"
                 name="registered"
                 id="registered"
-                required
+                required={third}
               />
               Registered above 10 days ago
             </label>
@@ -79,7 +84,12 @@ const Third = ({ setFirst, setSecond, setThird, className }) => {
               htmlFor="holding"
               className="flex items-center justify-start gap-1"
             >
-              <input type="checkbox" name="holding" id="holding" required />
+              <input
+                type="checkbox"
+                name="holding"
+                id="holding"
+                required={third}
+              />
               Holdings more than 0.005 BTC
             </label>
           </div>
