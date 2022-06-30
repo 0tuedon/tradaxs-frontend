@@ -10,7 +10,7 @@ const Wallets = () => {
   return (
     <div>
       <h2 className="mb-3 text-xs font-medium uppercase opacity-70">Wallets</h2>
-      <div className="flex flex-wrap items-center justify-start gap-5">
+      <div className="flex flex-wrap items-center justify-start gap-x-2 gap-y-3 md:gap-5">
         <div className="flex items-center justify-between p-3 space-x-5 rounded-md walletCard w-fit">
           <BsCurrencyBitcoin className="w-8 h-8" />
           <span>
@@ -54,8 +54,8 @@ const Wallets = () => {
           </span>
         </div>
 
-        <button className="flex items-center justify-between px-5 py-8 space-x-1 text-xs border border-black border-dashed rounded-md opacity-70">
-          <AiOutlinePlus /> <span>Add Currency</span>
+        <button className="flex items-center justify-between py-8 space-x-1 text-xs border border-black border-dashed rounded-md px-7 opacity-70">
+          <AiOutlinePlus className="w-4 h-4" /> <span>Add Currency</span>
         </button>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { MdSwapHoriz } from "react-icons/md";
 
 const Transactions = () => {
   return (
-    <div className="flex flex-wrap items-center justify-start gap-5 mb-10 font-medium text-white">
+    <div className="flex flex-wrap items-center justify-start mb-10 font-medium text-white gap-x-2 gap-y-3 md:gap-5">
       <div className="flex items-center justify-between p-3 space-x-5 rounded-md w-fit bg-landingBlue">
         <span>
           <FaWallet className="w-8 h-8" />

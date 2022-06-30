@@ -8,7 +8,8 @@ export const SideBar = ({ active }) => {
   return (
     <div
       className={`md:sidebar
-        w-[320px]
+      w-[250px]
+        sm:w-[320px]
         bg-[rgba(27,25,66)]
         h-full
         py-[50px]
