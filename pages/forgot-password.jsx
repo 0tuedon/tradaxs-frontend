@@ -33,10 +33,10 @@ const Login = () => {
   }
 
   useEffect(()=>{
-    const signupmodal = localStorage.getItem("signup-modal");
-    if(signupmodal){
-      toast.success("Account Created Successfully")
-      localStorage.removeItem("signup-modal")
+    const resetmodal = localStorage.getItem("reset-modal");
+    if(resetmodal){
+      toast.success("A Mail has been sent ")
+      localStorage.removeItem("reset-modal")
     }
     else{
 
@@ -44,10 +44,13 @@ const Login = () => {
   },[])
 
   const LoginSchema = Yup.object().shape({
-    email: Yup.string().email("Invalid email").required("Field is required"),
     password: Yup.string()
       .required("Field is required")
-      .min(6, "Field must be at least 6 characters long"),
+      .min(8, "Field must be at least 8 characters long"),
+      password_confirmation:Yup.string().oneOf(
+        [Yup.ref("password"), null],
+        "password must match"
+      ).required("field is required"),
   });
 
   return (
@@ -65,14 +68,14 @@ const Login = () => {
           <h3 className="my-0 text-sm font-medium md:text-base">Tradaxs</h3>
         </span>
         <h1 className="text-base font-medium text-center md:text-lg">
-          Login to Dashboard
+         Reset Password
         </h1>
         <p className="text-xs text-center md:text-sm opacity-70">
-          Enter your details to login
+          Enter your new Password
         </p>
         <Formik
           initialValues={{
-            email: "",
+            password_confirmation:"",
             password: "",
           }}
           validationSchema={LoginSchema}
@@ -86,26 +89,19 @@ const Login = () => {
               {/* email field */}
               <Input
                 as="label"
-                label="Email"
-                name="email"
-                type="email"
-                placeholder="Email address"
+                label="Password"
+                name="password"
+                type="password"
+                placeholder="Password"
               />
               {/* password field */}
               {/* needed more customization*/}
               <Input
                 as="label"
-                label={
-                  <span className="flex items-center justify-between w-full">
-                    <span>Password</span>
-                    <Link href="/" passHref>
-                      <a className="text-xs text-accent">Forgot password?</a>
-                    </Link>
-                  </span>
-                }
-                name="password"
+                label="Confirm Password"
+                name="password_confirmation"
                 type="password"
-                placeholder="Password"
+                placeholder="Confirm Password"
               />
               <button
                 type="submit"
@@ -116,14 +112,14 @@ const Login = () => {
                  flex justify-center items-center
                  rounded-md bg-accent"
               >
-                {isLoading?<Loading/>:'Login'}
+                {isLoading?<Loading/>:'Update Password'}
               </button>
-              <p className="mt-4 text-xs text-center md:text-sm">
+              {/* <p className="mt-4 text-xs text-center md:text-sm">
                 Don&apos;t have an account?{" "}
                 <Link href="/register" passHref>
                   <a className="text-accent">Sign up</a>
                 </Link>
-              </p>
+              </p> */}
             </Form>
           )}
         </Formik>

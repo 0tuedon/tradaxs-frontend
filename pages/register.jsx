@@ -1,25 +1,57 @@
-import React from "react";
+import React, { useState } from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import LogoAccent from "../assets/icons/LogoAccent";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import Link from "next/link";
 import Input from "../components/Input";
 import { registerStructure } from "../data/Register";
+import { paths } from "../api/paths";
+import { SignupReq } from "../services/authServices";
+import Loading from "../components/Loading";
 
 const Register = () => {
+  const [isLoading,setIsLoading] = useState(false)
   //validation schema
+  const submitHandler = async (val)=>{
+    setIsLoading(true)
+    const { data, err } = await SignupReq(val);
+    if (data) {
+      localStorage.setItem("signup-modal", true);
+      Router.push(paths.SIGNIN);
+    } else {
+    
+      setIsLoading(false)
+      const [email] = err?.errors?.email || [undefined]
+      toast.error(`${err?.msg || "Error:"}
+      ${
+        email || 
+        err?.errors?.username[0] ||
+        " "
+      }`);
+    }
+  }
   const RegisterSchema = Yup.object().shape({
     name: Yup.string().required("Field is required"),
     username: Yup.string().required("Field is required"),
     email: Yup.string().email("Invalid email").required("Field is required"),
     phone: Yup.string().required("Field is required"),
     password: Yup.string()
-      .required("Field is required")
-      .min(6, "Field must be at least 6 characters long"),
+      .required("password is required")
+      .min(8, "password must be a minimum of eight characters"),
+      
+    cPassword: Yup.string().oneOf(
+      [Yup.ref("password"), null],
+      "password must match"
+    ).required("field is required"),
   });
 
   return (
     <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
+      <ToastContainer
+      autoClose={100}
+      />
       <div className="w-full h-auto max-w-md p-5 pb-10 bg-white rounded-md">
         <span className="grid mx-auto mb-5 w-fit place-items-center">
           <Link href="/" passHref>
@@ -46,7 +78,7 @@ const Register = () => {
           validationSchema={RegisterSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            console.log(values);
+            submitHandler(values)
           }}
         >
           {() => (
@@ -63,12 +95,17 @@ const Register = () => {
                   />
                 );
               })}
-              <button
+                <button
                 type="submit"
-                className="block w-full px-5 py-3 mt-8 text-sm font-medium text-center text-white rounded-md bg-accent"
+                className="
+                 w-full px-5 py-3 mt-8 text-sm font-medium 
+                text-center text-white rounded-md bg-accent
+                flex justify-center items-center
+                max-h-[48px]
+                "
               >
-                Sign up
-              </button>
+              {isLoading?<Loading/>:'Sign up'}
+              </button> 
               <p className="mt-4 text-xs text-center md:text-sm">
                 Already have an account?{" "}
                 <Link href="/login" passHref>

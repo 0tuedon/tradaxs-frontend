@@ -6,7 +6,7 @@ import Link from "next/link";
 import Input from "../components/Input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { LoginReq } from "../services/authServices";
+import { ForgotPasswordReq, LoginReq } from "../services/authServices";
 import { useState,useEffect } from "react";
 import { useRouter } from "next/router";
 import { paths } from "../api/paths";
@@ -18,11 +18,11 @@ const Login = () => {
   //validation schema
   const submitHandler = async (val)=>{
     setIsLoading(true)
-    const {data,err} = await LoginReq(val)
+    const {data,err} = await ForgotPasswordReq(val)
     if(data){
-      JsCookies.setItem("accessToken", data?.accessToken)
-      localStorage.setItem("login-modal",true)
-      Router.push(paths.DASHBOARD)
+      localStorage.setItem("reset-modal",true)
+      console.log(data)
+    //   Router.push(paths.FORGOT_PASSWORD)
     }
     else{
       setIsLoading(false)
@@ -32,22 +32,10 @@ const Login = () => {
 
   }
 
-  useEffect(()=>{
-    const signupmodal = localStorage.getItem("signup-modal");
-    if(signupmodal){
-      toast.success("Account Created Successfully")
-      localStorage.removeItem("signup-modal")
-    }
-    else{
 
-    }
-  },[])
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Field is required"),
-    password: Yup.string()
-      .required("Field is required")
-      .min(6, "Field must be at least 6 characters long"),
   });
 
   return (
@@ -65,15 +53,14 @@ const Login = () => {
           <h3 className="my-0 text-sm font-medium md:text-base">Tradaxs</h3>
         </span>
         <h1 className="text-base font-medium text-center md:text-lg">
-          Login to Dashboard
+          Reset Password
         </h1>
         <p className="text-xs text-center md:text-sm opacity-70">
-          Enter your details to login
+          Enter email to reset password
         </p>
         <Formik
           initialValues={{
             email: "",
-            password: "",
           }}
           validationSchema={LoginSchema}
           onSubmit={(values) => {
@@ -93,20 +80,6 @@ const Login = () => {
               />
               {/* password field */}
               {/* needed more customization*/}
-              <Input
-                as="label"
-                label={
-                  <span className="flex items-center justify-between w-full">
-                    <span>Password</span>
-                    <Link href="/" passHref>
-                      <a className="text-xs text-accent">Forgot password?</a>
-                    </Link>
-                  </span>
-                }
-                name="password"
-                type="password"
-                placeholder="Password"
-              />
               <button
                 type="submit"
                 className=" w-full 
@@ -116,12 +89,12 @@ const Login = () => {
                  flex justify-center items-center
                  rounded-md bg-accent"
               >
-                {isLoading?<Loading/>:'Login'}
+                {isLoading?<Loading/>:'Reset Password'}
               </button>
               <p className="mt-4 text-xs text-center md:text-sm">
-                Don&apos;t have an account?{" "}
-                <Link href="/register" passHref>
-                  <a className="text-accent">Sign up</a>
+                Remembered Password{" "}
+                <Link href={paths.SIGNIN} passHref>
+                  <a className="text-accent">Sign in</a>
                 </Link>
               </p>
             </Form>

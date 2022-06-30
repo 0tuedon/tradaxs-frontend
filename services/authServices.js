@@ -1,5 +1,5 @@
 import { axiosClientU } from "../api/client";
-import { BASE, LOGIN, SIGNUP } from "../api/urls";
+import { BASE, FORGOT_PASSWORD, LOGIN, SIGNUP } from "../api/urls";
 
 
 export const LoginReq = async (val)=>{
@@ -39,6 +39,21 @@ export const SignupReq = async (val)=>{
             err: err?.response?.data || { msg: "No Network Connection" },
         }
     }
-    
+}
 
+export const ForgotPasswordReq = async (val)=>{
+    try{
+        const formdata = new FormData();
+        formdata.append("email",val.email)
+       
+
+        const response =  await axiosClientU.post(FORGOT_PASSWORD,formdata)
+        return{data:response.data,err:null}
+        }
+        catch(err){
+            return{
+                data:null,
+                err: err?.response?.data || { msg: "No Network Connection" },
+            }
+        }    
 }
