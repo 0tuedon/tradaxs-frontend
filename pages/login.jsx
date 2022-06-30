@@ -98,7 +98,7 @@ const Login = () => {
                 label={
                   <span className="flex items-center justify-between w-full">
                     <span>Password</span>
-                    <Link href="/" passHref>
+                    <Link href={paths.RESET_PASSWORD} passHref>
                       <a className="text-xs text-accent">Forgot password?</a>
                     </Link>
                   </span>
