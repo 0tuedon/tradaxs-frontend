@@ -35,7 +35,7 @@ const NavBar = () => {
           src="/icons/divider.svg" alt="divider" />
         </div>
         <NavLink
-          route={"/auth/signup"}
+          route={"/register"}
           style={`rounded-[32px]
                 bg-btnAccent
                 w-[120px]
