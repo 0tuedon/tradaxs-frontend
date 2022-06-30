@@ -34,4 +34,11 @@ export const registerStructure = [
         type: "password",
         placeholder: "Password",
     },
+    {
+        as: "label",
+        label: "Confirm Password",
+        name: "cPassword",
+        type: "password",
+        placeholder: "Confirm Password",
+    },
 ];
