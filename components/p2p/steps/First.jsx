@@ -2,9 +2,15 @@ import React, { useState } from "react";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 
 const First = ({ setFirst, setSecond, setThird, className }) => {
-  let [price, setPrice] = useState(415.41);
+  let data = JSON.parse(localStorage.getItem("firstProcess"));
+
+  let [price, setPrice] = useState(data?.price || 415.41);
+  let [asset, setAsset] = useState(data?.asset || "usdt");
+  let [cash, setCash] = useState(data?.cash || "usd");
+  let [type, setType] = useState(data?.type || "fixed");
   let cryptoCurrencies = ["USDT", "BTC", "BNB", "BUSDT", "ETH", "LTC"];
   const handleAssets = (e) => {
+    setAsset(e.target.value);
     let labels = document.querySelectorAll(".ct");
     labels.forEach((label) => {
       label.classList.remove("underline");
@@ -18,6 +24,7 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
   };
 
   const handleCash = (e) => {
+    setCash(e.target.value);
     let labels = document.querySelectorAll(".cash");
     labels.forEach((label) => {
       label.classList.remove("underline");
@@ -31,6 +38,7 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
   };
 
   const handleType = (e) => {
+    setType(e.target.value);
     let labels = document.querySelectorAll(".type");
     labels.forEach((label) => {
       label.classList.remove("underline");
@@ -53,6 +61,9 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
 
   const handle = (e) => {
     e.preventDefault();
+
+    let data = { price, type, asset, cash };
+    localStorage.setItem("firstProcess", JSON.stringify(data));
     setFirst(false);
     setSecond(true);
     setThird(false);
@@ -70,17 +81,26 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
                     <li key={i} className="group">
                       <label
                         htmlFor={`crypto ${i}`}
-                        className="flex flex-col items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer ct hover:underline focus:underline group-first-of-type:underline"
+                        className={`flex flex-col items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer ct hover:underline focus:underline ${
+                          data?.asset
+                            ? data?.asset === ct.toLowerCase() && "underline"
+                            : "group-first-of-type:underline"
+                        }`}
                       >
                         <span>{ct}</span>
                         <span className="relative w-4 h-4 bg-white rounded-full">
                           <input
                             type="radio"
                             name="crypto"
+                            value={ct.toLowerCase()}
                             id={`crypto ${i}`}
                             className="absolute top-0 left-0 w-full h-full border-none outline-none"
                             onChange={handleAssets}
-                            defaultChecked={i === 0 && true}
+                            defaultChecked={
+                              data?.asset
+                                ? data?.asset === ct.toLowerCase() && true
+                                : i === 0 && true
+                            }
                           />
                         </span>
                       </label>
@@ -99,17 +119,26 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
                     <li key={i} className="group">
                       <label
                         htmlFor={`cash ${i}`}
-                        className="flex flex-col items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer cash hover:underline focus:underline group-first-of-type:underline"
+                        className={`flex flex-col items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer ct hover:underline focus:underline ${
+                          data?.cash
+                            ? data?.cash === ct.toLowerCase() && "underline"
+                            : "group-first-of-type:underline"
+                        }`}
                       >
                         <span>{ct}</span>
                         <span className="relative w-4 h-4 bg-white rounded-full">
                           <input
                             type="radio"
                             name="cash"
+                            value={ct.toLowerCase()}
                             id={`cash ${i}`}
                             className="absolute top-0 left-0 w-full h-full border-none outline-none"
                             onChange={handleCash}
-                            defaultChecked={i === 0 && true}
+                            defaultChecked={
+                              data?.cash
+                                ? data?.cash === ct.toLowerCase() && true
+                                : i === 0 && true
+                            }
                           />
                         </span>
                       </label>
@@ -137,16 +166,25 @@ const First = ({ setFirst, setSecond, setThird, className }) => {
                   <li key={i} className="group">
                     <label
                       htmlFor={`price-type ${i}`}
-                      className="flex items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer type hover:underline focus:underline group-first-of-type:underline"
+                      className={`flex items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer ct hover:underline focus:underline ${
+                        data?.type
+                          ? data?.type === ct.toLowerCase() && "underline"
+                          : "group-first-of-type:underline"
+                      }`}
                     >
                       <span className="relative w-4 h-4 bg-white rounded-full">
                         <input
                           type="radio"
                           name="price type"
                           id={`price-type ${i}`}
+                          value={ct.toLowerCase()}
                           className="absolute top-0 left-0 w-full h-full border-none outline-none"
                           onChange={handleType}
-                          defaultChecked={i === 0 && true}
+                          defaultChecked={
+                            data?.type
+                              ? data?.type === ct.toLowerCase() && true
+                              : i === 0 && true
+                          }
                         />
                       </span>
                       <span>{ct}</span>

@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { TbWorld } from "react-icons/tb";
 
 const Third = ({ setFirst, setSecond, setThird, className }) => {
+  let data = JSON.parse(localStorage.getItem("thirdProcess"));
+  let [region, setRegion] = useState(data?.region || "");
   const handle = (e) => {
     e.preventDefault();
+    let data = { region };
+    localStorage.setItem("thirdProcess", JSON.stringify(data));
   };
 
   const handlePrev = () => {
@@ -41,8 +45,12 @@ const Third = ({ setFirst, setSecond, setThird, className }) => {
             name="region"
             id="region"
             className="w-48 px-2 py-1 text-xs text-black rounded-sm outline-none"
+            onChange={(e) => {
+              setRegion(e.target.value);
+            }}
           >
             <option value="all">All Region</option>
+            <option value="lagos">Lagos</option>
           </select>
         </label>
         <div className="mb-7">

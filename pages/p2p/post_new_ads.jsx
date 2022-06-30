@@ -3,9 +3,20 @@ import Transactions from "../../components/p2p/Transactions";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import HeaderNav from "../../components/p2p/HeaderNav";
 import Progress from "../../components/p2p/Progress";
-import First from "../../components/p2p/steps/First";
-import Second from "../../components/p2p/steps/Second";
-import Third from "../../components/p2p/steps/Third";
+
+import dynamic from "next/dynamic";
+
+const First = dynamic(() => import("../../components/p2p/steps/First"), {
+  ssr: false,
+});
+
+const Second = dynamic(() => import("../../components/p2p/steps/Second"), {
+  ssr: false,
+});
+
+const Third = dynamic(() => import("../../components/p2p/steps/Third"), {
+  ssr: false,
+});
 
 const Index = () => {
   const [firstActive, setFirstActive] = useState(true);

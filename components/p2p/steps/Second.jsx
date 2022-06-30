@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
 
 const Second = ({ setFirst, setSecond, setThird, className }) => {
+  let data = JSON.parse(localStorage.getItem("secondProcess"));
+  let [amount, setAmount] = useState(data?.amount || 0);
+  let [limit, setLimit] = useState(data?.limit || { min: 500, max: 700 });
+  let [paymentMethod, setPaymentMethod] = useState(
+    data?.paymentMethod || "bank transfer"
+  );
+  let [payTimeLimit, setPayTimeLimit] = useState(data?.payTimeLimit || "15");
   const handleMethod = (e) => {
+    setPaymentMethod(e.target.value);
     let labels = document.querySelectorAll(".method");
     labels.forEach((label) => {
       label.classList.remove("underline");
@@ -15,6 +23,8 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
   };
   const handle = (e) => {
     e.preventDefault();
+    let data = { paymentMethod, amount, limit, payTimeLimit };
+    localStorage.setItem("secondProcess", JSON.stringify(data));
     setFirst(false);
     setSecond(false);
     setThird(true);
@@ -37,7 +47,11 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
                 name="amount"
                 id="amount"
                 className="flex-auto py-1 bg-transparent outline-none"
-                placeholder="0"
+                defaultValue={amount}
+                min="5"
+                onChange={(e) => {
+                  setAmount(e.target.value);
+                }}
                 required
               />
               <span className="text-xs font-medium">USDT</span>
@@ -57,7 +71,10 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
                     name="min"
                     id="min"
                     className="w-full py-1 bg-transparent outline-none"
-                    defaultValue={500}
+                    defaultValue={limit.min}
+                    onChange={(e) => {
+                      setLimit({ ...limit, min: e.target.value });
+                    }}
                   />
                   <span className="text-xs font-medium">NGN</span>
                 </span>
@@ -70,7 +87,10 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
                     name="max"
                     id="max"
                     className="w-full py-1 bg-transparent outline-none"
-                    defaultValue={700}
+                    defaultValue={limit.max}
+                    onChange={(e) => {
+                      setLimit({ ...limit, max: e.target.value });
+                    }}
                   />
                   <span className="text-xs font-medium">NGN</span>
                 </span>
@@ -85,7 +105,12 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
                   <li key={i} className="group">
                     <label
                       htmlFor={`method ${i}`}
-                      className="flex items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer method hover:underline focus:underline group-first-of-type:underline"
+                      className={`flex items-center gap-2 text-xs font-semibold transition-all duration-200 cursor-pointer ct hover:underline focus:underline ${
+                        data?.paymentMethod
+                          ? data?.paymentMethod === ct.toLowerCase() &&
+                            "underline"
+                          : "group-first-of-type:underline"
+                      }`}
                     >
                       <span className="relative w-4 h-4 bg-white rounded-full">
                         <input
@@ -93,8 +118,13 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
                           name="method"
                           id={`method ${i}`}
                           className="absolute top-0 left-0 w-full h-full border-none outline-none"
+                          value={ct.toLowerCase()}
                           onChange={handleMethod}
-                          defaultChecked={i === 0 && true}
+                          defaultChecked={
+                            data?.paymentMethod
+                              ? data?.paymentMethod === ct.toLowerCase() && true
+                              : i === 0 && true
+                          }
                         />
                       </span>
                       <span>{ct}</span>
@@ -110,6 +140,9 @@ const Second = ({ setFirst, setSecond, setThird, className }) => {
               name="time"
               id="time"
               className="w-48 px-2 py-1 text-xs text-black rounded-sm outline-none"
+              onChange={(e) => {
+                setPayTimeLimit(e.target.value);
+              }}
             >
               <option value="15">15 mins</option>
               <option value="20">20 mins</option>
