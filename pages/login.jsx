@@ -98,7 +98,7 @@ const Login = () => {
                 label={
                   <span className="flex items-center justify-between w-full">
                     <span>Password</span>
-                    <Link href="/" passHref>
+                    <Link href={paths.RESET_PASSWORD} passHref>
                       <a className="text-xs text-accent">Forgot password?</a>
                     </Link>
                   </span>
@@ -120,7 +120,7 @@ const Login = () => {
               </button>
               <p className="mt-4 text-xs text-center md:text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href="/register" passHref>
+                <Link href={paths.SIGNUP} passHref>
                   <a className="text-accent">Sign up</a>
                 </Link>
               </p>
