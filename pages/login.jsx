@@ -120,7 +120,7 @@ const Login = () => {
               </button>
               <p className="mt-4 text-xs text-center md:text-sm">
                 Don&apos;t have an account?{" "}
-                <Link href="/register" passHref>
+                <Link href={paths.SIGNUP} passHref>
                   <a className="text-accent">Sign up</a>
                 </Link>
               </p>
