@@ -8,7 +8,7 @@ export const SideBar = ({ active }) => {
   return (
     <div
       className={`md:sidebar
-        w-[240px]
+        w-[320px]
         bg-[rgba(27,25,66)]
         h-full
         py-[50px]
@@ -32,7 +32,7 @@ export const SideBar = ({ active }) => {
           <NavLink
             href={data.route}
             key={data.name}
-            className="flex items-center justify-start pl-5 space-x-4 text-sm text-gray-400 transition-all duration-200 hover:text-dashboardLink"
+            className="relative flex items-center justify-start pl-5 space-x-4 text-sm text-gray-400 transition-all duration-200 hover:text-dashboardLink"
           >
             <Icon className="w-4 h-4" />
             <span>{data.name}</span>
@@ -45,7 +45,7 @@ export const SideBar = ({ active }) => {
 
 export const Navbar = ({ title, handleToggle }) => {
   return (
-    <div className="w-full min-h-[60px] z-50">
+    <div className="w-full min-h-[60px] z-50 mb-10">
       <TopBar title={title} handleToggle={handleToggle} />
     </div>
   );

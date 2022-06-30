@@ -1,19 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
-import React, { useState } from "react";
+import React from "react";
 import { AiOutlineMenu, AiFillBell } from "react-icons/ai";
 import { FiSearch } from "react-icons/fi";
 import { MdApps } from "react-icons/md";
 import { BiChevronDown } from "react-icons/bi";
 import Image from "next/image";
 import PropTypes from "prop-types";
-import Link from "next/link";
 
 const TopBar = ({ title, handleToggle }) => {
   return (
     <div className="flex items-start justify-between text-white">
       {/**content */}
       <span>
-        <h1 className="text-2xl font-medium">Dashboard</h1>
+        <h1 className="text-2xl font-medium mb-1">Dashboard</h1>
         <p className="hidden text-xs opacity-50 sm:block">
           With all of the styling tool options available in today&apos;s market
         </p>
