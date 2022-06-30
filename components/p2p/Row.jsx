@@ -3,9 +3,9 @@ import React from "react";
 const Row = ({ data }) => {
   return (
     <tr>
-      <td className="text-xs py-3 lg:text-sm first:pl-6">{data.advertiser}</td>
-      <td className="text-xs py-3 lg:text-sm">{data.price} USD</td>
-      <td className="text-xs py-3 lg:text-sm flex flex-col gap-2">
+      <td className="p-3 text-xs lg:text-sm first:pl-6">{data.advertiser}</td>
+      <td className="p-3 text-xs lg:text-sm">{data.price} USD</td>
+      <td className="flex flex-col gap-2 p-3 text-xs lg:text-sm">
         <span>
           <span className="font-medium">Available</span>&nbsp; {data.available}{" "}
           USDT
@@ -23,9 +23,9 @@ const Row = ({ data }) => {
           }).format(data.limit[1])}
         </span>
       </td>
-      <td className="text-xs py-3 capitalize lg:text-sm">{data.payment}</td>
-      <td className="py-3">
-        <button className="bg-white rounded-md text-accent text-xs py-2 font-bold px-3">
+      <td className="p-3 text-xs capitalize">{data.payment}</td>
+      <td className="p-3">
+        <button className="px-6 py-2 text-xs font-bold bg-white rounded-md text-accent">
           Buy {data.trade}
         </button>
       </td>

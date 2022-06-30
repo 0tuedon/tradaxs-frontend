@@ -54,14 +54,14 @@ const Table = () => {
   ];
 
   return (
-    <table className="w-full lg:font-bold">
+    <table className="w-full border-spacing-5">
       <thead className="w-full">
         <tr>
           {header.map((head, i) => {
             return (
               <th
                 key={i}
-                className="py-3 text-xs lg:text-sm text-left capitalize first:pl-6"
+                className="p-3 text-xs text-left capitalize lg:text-[0.94rem] first:pl-6"
               >
                 {head}
               </th>
