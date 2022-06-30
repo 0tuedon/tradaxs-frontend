@@ -3,9 +3,7 @@ module.exports = {
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
-  plugins:[
-    require('tailwind-scrollbar')
-  ],
+  plugins: [require("tailwind-scrollbar")],
   theme: {
     extend: {
       colors: {
@@ -25,13 +23,12 @@ module.exports = {
         textblue: "#70B2FF",
         textGray: "#B1AFCD",
         dashboardLink: "#53B9EA",
-        buttonBlue:"#0C4DAE",
-        grayText:"#8D8D8D",
-        borderShade:"#ADADAD",
-        gray2:"#808080",
-        lightBlue:"#4285F4"
+        buttonBlue: "#0C4DAE",
+        grayText: "#8D8D8D",
+        borderShade: "#ADADAD",
+        gray2: "#808080",
+        lightBlue: "#4285F4",
       },
     },
   },
-  plugins: [],
 };

@@ -1,6 +1,10 @@
 import Link from "next/link";
 import React from "react";
-import HistoryItem from "./HistoryItem";
+import dynamic from "next/dynamic";
+
+const HistoryItem = dynamic(() => import("./HistoryItem"), {
+  ssr: false,
+});
 
 const History = () => {
   return (
