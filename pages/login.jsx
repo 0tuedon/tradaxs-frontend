@@ -47,11 +47,12 @@ const Login = () => {
     email: Yup.string().email("Invalid email").required("Field is required"),
     password: Yup.string()
       .required("Field is required")
-      .min(6, "Field must be at least 6 characters long"),
   });
 
   return (
-    <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
+    <section className="grid max-w-full min-h-screen px-5 
+    py-3
+    md:px-10 bg-bgray place-items-center">
       <ToastContainer
       autoClose={500}
       />
