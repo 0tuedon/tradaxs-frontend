@@ -43,12 +43,20 @@ const Login = () => {
     email: Yup.string().email("Invalid email").required("Field is required"),
     password: Yup.string()
       .required("Field is required")
-      .min(6, "Field must be at least 6 characters long"),
   });
 
   return (
+<<<<<<< HEAD
     <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
       <ToastContainer autoClose={500} />
+=======
+    <section className="grid max-w-full min-h-screen px-5 
+    py-3
+    md:px-10 bg-bgray place-items-center">
+      <ToastContainer
+      autoClose={500}
+      />
+>>>>>>> 2be7bd25147dd7b676c20755d76951a7a1f76998
       <div className="w-full h-auto max-w-md p-5 pb-10 bg-white rounded-md">
         <span className="grid mx-auto mb-5 w-fit place-items-center">
           <Link href="/" passHref>

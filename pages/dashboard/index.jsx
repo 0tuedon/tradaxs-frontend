@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LineChart from "../../components/Dashboard/Chart";
 import History from "../../components/Dashboard/History";
 import Trends from "../../components/Dashboard/Trends";
