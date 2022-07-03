@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 import { FaWallet, FaMoneyBill } from "react-icons/fa";
 import { MdSwapHoriz } from "react-icons/md";
@@ -33,15 +34,17 @@ const Transactions = () => {
           <p className="text-xs md:text-sm text-black/50">Virtual Balance</p>
         </span>
       </div>
-      <div className="flex items-center justify-between p-3 space-x-5 rounded-md bg-landingBlue w-fit">
-        <span>
-          <MdSwapHoriz className="w-8 h-8" />
-        </span>
-        <span>
-          <h2 className="text-base md:text-lg">50</h2>
-          <p className="text-xs md:text-sm text-black/50">Transactions</p>
-        </span>
-      </div>
+      <Link href="/dashboard/transactions" passHref>
+        <a className="flex items-center justify-between p-3 space-x-5 rounded-md bg-landingBlue w-fit">
+          <span>
+            <MdSwapHoriz className="w-8 h-8" />
+          </span>
+          <span>
+            <h2 className="text-base md:text-lg">50</h2>
+            <p className="text-xs md:text-sm text-black/50">Transactions</p>
+          </span>
+        </a>
+      </Link>
     </div>
   );
 };

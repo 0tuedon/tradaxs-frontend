@@ -1,58 +1,6 @@
 import Row from "./Row";
-import Bitcoin from "../../assets/icons/Bitcoin";
 
-const Table = () => {
-  const header = [
-    "advertisers",
-    "price(lowest to highest)",
-    "limit/available",
-    "payment",
-    "trade",
-  ];
-
-  let data = [
-    {
-      advertiser: "Rolex",
-      price: 0.97,
-      available: 498.6,
-      limit: [200.0, 483.86],
-      payment: "bank transfer",
-      trade: "USDT",
-    },
-    {
-      advertiser: "Rolex",
-      price: 0.97,
-      available: 498.6,
-      limit: [200.0, 483.86],
-      payment: "bank transfer",
-      trade: "USDT",
-    },
-    {
-      advertiser: "Rolex",
-      price: 0.97,
-      available: 498.6,
-      limit: [200.0, 483.86],
-      payment: "bank transfer",
-      trade: "USDT",
-    },
-    {
-      advertiser: "Rolex",
-      price: 0.97,
-      available: 498.6,
-      limit: [200.0, 483.86],
-      payment: "bank transfer",
-      trade: "USDT",
-    },
-    {
-      advertiser: "Rolex",
-      price: 0.97,
-      available: 498.6,
-      limit: [200.0, 483.86],
-      payment: "bank transfer",
-      trade: "USDT",
-    },
-  ];
-
+const Table = ({ type = "", header = [], data = [] }) => {
   return (
     <table className="w-full border-spacing-5">
       <thead className="w-full">
@@ -71,7 +19,7 @@ const Table = () => {
       </thead>
       <tbody className="w-full">
         {data.map((data, i) => {
-          return <Row data={data} key={i} />;
+          return <Row data={data} key={i} type={type} />;
         })}
       </tbody>
     </table>
