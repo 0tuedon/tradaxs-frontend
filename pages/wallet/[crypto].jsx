@@ -19,10 +19,10 @@ const Crypto = () => {
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
         <div className="relative mb-24">
-          <div className="md:max-w-[40.375rem] w-full max-w-full overflow-hidden bg-landingBlue rounded-[0.625rem] min-h-[24.375rem] py-[2.0625rem] px-[2.25rem]">
+          <div className="md:max-w-[35.8rem] w-full max-w-full overflow-hidden bg-landingBlue rounded-[0.625rem] min-h-[24.375rem] py-[2.0625rem] px-[2.25rem]">
             <span className="flex items-center justify-between mb-[4.75rem]">
               <span className="mb-[0.375rem]">
-                <h2 className="text-base uppercase md:text-[2.5rem] leading-[3.75rem]">
+                <h2 className="text-base uppercase md:text-[2.5rem] md:leading-[3.75rem]">
                   {coin.crypto}
                 </h2>
                 <p className="text-xs">0.067890</p>
