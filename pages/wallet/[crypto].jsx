@@ -43,8 +43,8 @@ const Crypto = () => {
               <h4 className="text-sm opacity-50 leading-[1.3125rem]">
                 Address
               </h4>
-              <span className="flex sm:items-center justify-start w-full gap-[1.125rem] flex-col sm:flex-row">
-                <h2 className="text-sm uppercase md:text-[1.0625rem] leading-[1.6rem]">
+              <span className="flex sm:items-center justify-start w-full md:gap-[1.125rem] flex-col sm:flex-row">
+                <h2 className="text-sm uppercase md:text-[1.0625rem] break-words leading-[1.6rem]">
                   0x095418a82bc2439703b69fbe1210824f2247d77c
                 </h2>
                 <span className="flex-auto">
