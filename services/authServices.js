@@ -8,7 +8,6 @@ export const LoginReq = async (val)=>{
         formdata.append("email",val.email)
         formdata.append("password",val.password)
         formdata.append("token",process.env.NEXT_PUBLIC_TOKEN)
-        formdata.append("web_key",process.env.NEXT_PUBLIC_WEB_KEY)
 
         const response =  await axiosClientU.post(LOGIN,formdata)
         return{data:response.data,err:null}
