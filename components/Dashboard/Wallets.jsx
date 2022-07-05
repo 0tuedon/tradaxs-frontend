@@ -54,7 +54,7 @@ const Wallets = () => {
           </span>
         </div>
 
-        <button className="flex items-center justify-between sm:py-8 space-x-1 text-xs border border-black border-dashed rounded-md px-7 h-full opacity-70 w-full max-w-full">
+        <button className="flex items-center justify-between sm:py-7 space-x-1 text-xs border border-black border-dashed rounded-md px-7 h-full opacity-70 w-full max-w-full">
           <AiOutlinePlus className="w-4 h-4" /> <span>Add Currency</span>
         </button>
       </div>
