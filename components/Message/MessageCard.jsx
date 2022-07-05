@@ -15,7 +15,7 @@ const MessageCard = () => {
             <span>
               <h2 className="text-sm font-semibold">maxMoney</h2>
               <p className="text-xs">Verifired User</p>
-              <p className="text-xs">2022-7-5 20:04</p>
+              <p className="text-xs">2022-07-05 20:04</p>
               {/* <p className="text-xs">{new Date().toLocaleDateString()}</p> */}
             </span>
           </div>

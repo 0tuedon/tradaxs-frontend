@@ -6,6 +6,7 @@ import Trends from "../../components/Dashboard/Trends";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import HeaderNav from "../../components/p2p/HeaderNav";
 import { p2pTable } from "../../data/static/tableDatas";
+import BuyModal from "../../components/p2p/BuyModal";
 
 const Index = () => {
   let cryptoCurrencies = ["USDT", "BTC", "BNB", "BUSDT", "ETH", "LTC"];
@@ -13,7 +14,8 @@ const Index = () => {
     <AuthLayout>
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
-        <div className="w-full overflow-auto max-w-screen">
+        <div className="relative w-full overflow-auto max-w-screen">
+          {/* <BuyModal /> */}
           <div className="max-w-screen min-w-fit rounded-lg bg-gradient-to-b from-landingBlue font-[700]">
             <div className="min-w-fit flex items-center justify-between gap-10 px-5 py-3 border-b md:px-10 mb-[1.6rem]">
               <div className="flex items-center justify-start gap-10">

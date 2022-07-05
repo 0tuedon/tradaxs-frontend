@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Transactions from "../../components/Dashboard/Transactions";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import HeaderNav from "../../components/p2p/HeaderNav";
-import Progress from "../../components/p2p/Progress";
+import { Progress } from "../../components/p2p/Progress";
 
 import dynamic from "next/dynamic";
 
