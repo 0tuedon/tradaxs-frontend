@@ -17,7 +17,7 @@ const TopBar = ({ title, handleToggle }) => {
   return (
     <div className="flex items-start justify-between text-white">
       {/**content */}
-      <h1 className="mb-1 text-2xl font-medium">Dashboard</h1>
+      <h1 className="mb-1 text-base sm:text-2xl font-medium">Dashboard</h1>
 
       <div className="relative flex items-center justify-between space-x-3 ">
         <FiSearch className="w-5 h-5 transition-all duration-200 cursor-pointer opacity-70 hover:opacity-100" />
