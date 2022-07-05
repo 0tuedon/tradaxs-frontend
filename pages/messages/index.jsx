@@ -1,7 +1,7 @@
 import React from "react";
 import Transactions from "../../components/Dashboard/Transactions";
 import AuthLayout from "../../components/Layouts/AuthLayout";
-import MessageCard from "../../components/Message/messageCard";
+import MessageCard from "../../components/Message/MessageCard";
 
 const Messages = () => {
   return (
