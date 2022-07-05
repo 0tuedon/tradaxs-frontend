@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Transactions from "../../components/p2p/Transactions";
+import Transactions from "../../components/Dashboard/Transactions";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import HeaderNav from "../../components/p2p/HeaderNav";
-import Progress from "../../components/p2p/Progress";
+import { Progress } from "../../components/p2p/Progress";
 
 import dynamic from "next/dynamic";
 
@@ -25,7 +25,7 @@ const Index = () => {
 
   return (
     <AuthLayout>
-      <section className="w-full pt-4 text-white">
+      <section className="w-full text-white md:pt-4">
         <Transactions />
         <div className="w-full max-w-full rounded-lg">
           <div className="flex items-center justify-between px-5 py-3 border-b md:px-10 ">

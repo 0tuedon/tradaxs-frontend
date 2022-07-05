@@ -16,8 +16,8 @@ export const NavigationLinks = [
     Icon: FaWallet,
   },
   {
-    name: "Message",
-    route: "/message",
+    name: "Messages",
+    route: "/messages",
     Icon: BsMessenger,
   },
   {

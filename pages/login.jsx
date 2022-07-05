@@ -1,4 +1,4 @@
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import JsCookies from "js-cookies";
 import LogoAccent from "../assets/icons/LogoAccent";
@@ -7,41 +7,37 @@ import Input from "../components/Input";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoginReq } from "../services/authServices";
-import { useState,useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 import { paths } from "../api/paths";
 import Loading from "../components/Loading";
 
 const Login = () => {
-  const [isLoading,setIsLoading] = useState(false)
-  const Router = useRouter()
+  const [isLoading, setIsLoading] = useState(false);
+  const Router = useRouter();
   //validation schema
-  const submitHandler = async (val)=>{
-    setIsLoading(true)
-    const {data,err} = await LoginReq(val)
-    if(data){
-      JsCookies.setItem("accessToken", data?.accessToken)
-      localStorage.setItem("login-modal",true)
-      Router.push(paths.DASHBOARD)
+  const submitHandler = async (val) => {
+    setIsLoading(true);
+    const { data, err } = await LoginReq(val);
+    if (data) {
+      JsCookies.setItem("accessToken", data?.accessToken);
+      localStorage.setItem("login-modal", true);
+      Router.push(paths.DASHBOARD);
+    } else {
+      setIsLoading(false);
+      toast.error(`${err?.error || "Error"}:
+       ${err?.msg || "Invalid Credentials"}`);
     }
-    else{
-      setIsLoading(false)
-      toast.error(`${err?.error||"Error"}:
-       ${err?.msg||"Invalid Credentials"}`)
-    }
+  };
 
-  }
-
-  useEffect(()=>{
+  useEffect(() => {
     const signupmodal = localStorage.getItem("signup-modal");
-    if(signupmodal){
-      toast.success("Account Created Successfully")
-      localStorage.removeItem("signup-modal")
+    if (signupmodal) {
+      toast.success("Account Created Successfully");
+      localStorage.removeItem("signup-modal");
+    } else {
     }
-    else{
-
-    }
-  },[])
+  }, []);
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Field is required"),
@@ -50,12 +46,8 @@ const Login = () => {
   });
 
   return (
-    <section className="grid max-w-full min-h-screen px-5 
-    py-3
-    md:px-10 bg-bgray place-items-center">
-      <ToastContainer
-      autoClose={500}
-      />
+    <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
+      <ToastContainer autoClose={500} />
       <div className="w-full h-auto max-w-md p-5 pb-10 bg-white rounded-md">
         <span className="grid mx-auto mb-5 w-fit place-items-center">
           <Link href="/" passHref>
@@ -79,7 +71,7 @@ const Login = () => {
           validationSchema={LoginSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            submitHandler(values)
+            submitHandler(values);
           }}
         >
           {() => (
@@ -117,7 +109,7 @@ const Login = () => {
                  flex justify-center items-center
                  rounded-md bg-accent"
               >
-                {isLoading?<Loading/>:'Login'}
+                {isLoading ? <Loading /> : "Login"}
               </button>
               <p className="mt-4 text-xs text-center md:text-sm">
                 Don&apos;t have an account?{" "}
@@ -130,7 +122,7 @@ const Login = () => {
         </Formik>
       </div>
     </section>
-  );
+  )
 };
 
 export default Login;

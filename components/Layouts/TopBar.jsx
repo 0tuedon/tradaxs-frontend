@@ -17,12 +17,8 @@ const TopBar = ({ title, handleToggle }) => {
   return (
     <div className="flex items-start justify-between text-white">
       {/**content */}
-      <span>
-        <h1 className="mb-1 text-2xl font-medium">Dashboard</h1>
-        <p className="hidden text-xs opacity-50 sm:block">
-          With all of the styling tool options available in today&apos;s market
-        </p>
-      </span>
+      <h1 className="mb-1 text-2xl font-medium">Dashboard</h1>
+
       <div className="relative flex items-center justify-between space-x-3 ">
         <FiSearch className="w-5 h-5 transition-all duration-200 cursor-pointer opacity-70 hover:opacity-100" />
         <MdApps className="w-6 h-6 transition-all duration-200 cursor-pointer hover:opacity-100 opacity-70" />

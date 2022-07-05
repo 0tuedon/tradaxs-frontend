@@ -47,7 +47,7 @@ const HeaderNav = () => {
           </Link>
         </li>
         <li>
-          <Link href="/" passHref>
+          <Link href="/p2p/ads" passHref>
             <a className="flex items-center justify-start gap-2">
               <span>
                 <RiContactsBookFill className="w-4 h-4" />

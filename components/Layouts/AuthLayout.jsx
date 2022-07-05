@@ -46,7 +46,7 @@ export const SideBar = ({ active }) => {
 
 export const Navbar = ({ title, handleToggle }) => {
   return (
-    <div className="w-full min-h-[60px] z-50 mb-10">
+    <div className="w-full mb-5 min-h-fit">
       <TopBar title={title} handleToggle={handleToggle} />
     </div>
   );
@@ -58,7 +58,7 @@ const AuthLayout = ({ children, title }) => {
     setMenuActive(!isMenuActive);
   };
   return (
-    <div className="flex w-full h-screen max-w-full max-h-screen dashboard">
+    <div className="relative flex w-full h-screen max-w-full max-h-screen dashboard">
       <SideBar active={isMenuActive} />
       <div className="w-full h-full px-5 pt-5 overflow-auto">
         <Navbar title={title} handleToggle={handleToggle} />

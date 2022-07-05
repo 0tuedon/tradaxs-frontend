@@ -12,26 +12,21 @@ import { SignupReq } from "../services/authServices";
 import Loading from "../components/Loading";
 
 const Register = () => {
-  const [isLoading,setIsLoading] = useState(false)
+  const [isLoading, setIsLoading] = useState(false);
   //validation schema
-  const submitHandler = async (val)=>{
-    setIsLoading(true)
+  const submitHandler = async (val) => {
+    setIsLoading(true);
     const { data, err } = await SignupReq(val);
     if (data) {
       localStorage.setItem("signup-modal", true);
       Router.push(paths.SIGNIN);
     } else {
-    
-      setIsLoading(false)
-      const [email] = err?.errors?.email || [undefined]
+      setIsLoading(false);
+      const [email] = err?.errors?.email || [undefined];
       toast.error(`${err?.msg || "Error:"}
-      ${
-        email || 
-        err?.errors?.username[0] ||
-        " "
-      }`);
+      ${email || err?.errors?.username[0] || " "}`);
     }
-  }
+  };
   const RegisterSchema = Yup.object().shape({
     name: Yup.string().required("Field is required"),
     username: Yup.string().required("Field is required"),
@@ -40,18 +35,14 @@ const Register = () => {
     password: Yup.string()
       .required("password is required")
       .min(8, "password must be a minimum of eight characters"),
-      
-    cPassword: Yup.string().oneOf(
-      [Yup.ref("password"), null],
-      "password must match"
-    ).required("field is required"),
+    cPassword: Yup.string()
+      .required("field is required")
+      .oneOf([Yup.ref("password"), null], "Passwords must match"),
   });
 
   return (
     <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
-      <ToastContainer
-      autoClose={100}
-      />
+      <ToastContainer autoClose={100} />
       <div className="w-full h-auto max-w-md p-5 pb-10 bg-white rounded-md">
         <span className="grid mx-auto mb-5 w-fit place-items-center">
           <Link href="/" passHref>
@@ -74,11 +65,12 @@ const Register = () => {
             email: "",
             phone: "",
             password: "",
+            cPassword: "",
           }}
           validationSchema={RegisterSchema}
           onSubmit={(values) => {
             // same shape as initial values
-            submitHandler(values)
+            submitHandler(values);
           }}
         >
           {() => (
@@ -95,7 +87,7 @@ const Register = () => {
                   />
                 );
               })}
-                <button
+              <button
                 type="submit"
                 className="
                  w-full px-5 py-3 mt-8 text-sm font-medium 
@@ -104,8 +96,8 @@ const Register = () => {
                 max-h-[48px]
                 "
               >
-              {isLoading?<Loading/>:'Sign up'}
-              </button> 
+                {isLoading ? <Loading /> : "Sign up"}
+              </button>
               <p className="mt-4 text-xs text-center md:text-sm">
                 Already have an account?{" "}
                 <Link href="/login" passHref>

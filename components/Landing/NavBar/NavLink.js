@@ -1,12 +1,11 @@
+import Link from "next/link";
 import React from "react";
 
 const NavLink = ({ children, style, route }) => {
   return (
-    <div className={`${style} text-white`}>
-      <a href={route} className="text-sm">
-        {children}
-      </a>
-    </div>
+    <Link href={route} passHref>
+      <a className={`${style} text-white text-sm`}>{children}</a>
+    </Link>
   );
 };
 
