@@ -117,7 +117,7 @@ const WalletModal = ({ handle }) => {
   );
 };
 
-const Portal = ({ children }) => {
+export const Portal = ({ children }) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {

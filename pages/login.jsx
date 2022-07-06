@@ -19,8 +19,10 @@ const Login = () => {
   const submitHandler = async (val) => {
     setIsLoading(true);
     const { data, err } = await LoginReq(val);
+    console.log(data?.user)
     if (data) {
       JsCookies.setItem("accessToken", data?.accessToken);
+      JsCookies.setItem("user",JSON.stringify(data?.user))
       localStorage.setItem("login-modal", true);
       Router.push(paths.DASHBOARD);
     } else {
