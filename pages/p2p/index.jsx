@@ -10,12 +10,21 @@ import BuyModal from "../../components/p2p/BuyModal";
 
 const Index = () => {
   let cryptoCurrencies = ["USDT", "BTC", "BNB", "BUSDT", "ETH", "LTC"];
+  const [isBuyingModalOpened, setModalOpened] = useState(false);
+  const handleToggle = () => {
+    setModalOpened(!isBuyingModalOpened);
+  };
   return (
     <AuthLayout>
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
         <div className="relative w-full overflow-auto max-w-screen">
-          {/* <BuyModal /> */}
+          <BuyModal
+            className={`fixed top-0 left-0 w-full h-screen z-50 ${
+              isBuyingModalOpened ? "scale-100" : "scale-0"
+            }`}
+            handleToggle={handleToggle}
+          />
           <div className="max-w-screen min-w-fit rounded-lg bg-gradient-to-b from-landingBlue font-[700]">
             <div className="min-w-fit flex items-center justify-between gap-10 px-5 py-3 border-b md:px-10 mb-[1.6rem]">
               <div className="flex items-center justify-start gap-10">
@@ -52,6 +61,7 @@ const Index = () => {
                   "trade",
                 ]}
                 data={p2pTable}
+                handleToggle={handleToggle}
               />
             </div>
           </div>
