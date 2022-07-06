@@ -16,7 +16,7 @@ const TransactionRow = ({ data }) => {
   );
 };
 
-const Row = ({ data, type }) => {
+const Row = ({ data, type, handleToggle = () => {} }) => {
   if (type === "transactions") {
     return <TransactionRow data={data} />;
   }
@@ -45,7 +45,10 @@ const Row = ({ data, type }) => {
       <td className="p-3 text-xs capitalize">{data.payment}</td>
       {type === "p2p" && (
         <td className="p-3">
-          <button className="px-6 py-2 text-xs font-bold bg-white rounded-md text-accent">
+          <button
+            className="px-6 py-2 text-xs font-bold bg-white rounded-md text-accent"
+            onClick={handleToggle}
+          >
             Buy {data.trade}
           </button>
         </td>
