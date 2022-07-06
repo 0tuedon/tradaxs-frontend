@@ -33,7 +33,7 @@ const ReplyCard = ({ background = "" }) => {
         </span>
       </div>
       <div className="bg-white h-96 mx-2 relative">
-        <p className="text-xs text-center text-accent absolute top-0 py-2 left-1/2 -translate-x-1/2 z-50 bg-white w-full">
+        <p className="text-xs text-center text-accent absolute top-0 py-2 left-1/2 -translate-x-1/2 z-40 bg-white w-full">
           2022-07-05 20:04
         </p>
         {/* <p className="text-xs">{new Date().toLocaleDateString()}</p> */}

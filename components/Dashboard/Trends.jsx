@@ -12,7 +12,7 @@ const Trends = () => {
     <div className="flex-1 text-textGray">
       <h1 className="mb-5 text-sm uppercase text-textGray">Trend</h1>
       <div className="flex flex-wrap items-start justify-between gap-5">
-        <div className="w-44">
+        <div className="w-full lg:w-44">
           <span className="flex items-center justify-between mb-2 opacity-70">
             <span className="flex items-center justify-between space-x-3">
               <p className="text-xs font-medium">BTC</p>
@@ -28,7 +28,7 @@ const Trends = () => {
           <Image src={Path1} alt="path" />
         </div>
 
-        <div className="w-44">
+        <div className="w-full lg:w-44">
           <span className="flex items-center justify-between mb-2 opacity-70">
             <span className="flex items-center justify-between space-x-3">
               <p className="text-xs font-medium">ETH</p>
@@ -44,7 +44,7 @@ const Trends = () => {
           <Image src={Path2} alt="path" />
         </div>
 
-        <div className="w-44">
+        <div className="w-full lg:w-44">
           <span className="flex items-center justify-between mb-2 opacity-70">
             <span className="flex items-center justify-between space-x-3">
               <p className="text-xs font-medium">LTE</p>

@@ -24,7 +24,7 @@ const Profile = () => {
         <div className="w-full max-w-full">
           <LineChart />
         </div>
-        <div className="flex flex-col mt-5 mb-10 min-h-64 lg:flex-row md:space-x-10">
+        <div className="flex flex-col mt-5 mb-10 lg:flex-row space-y-10 lg:space-y-0 lg:space-x-10">
           <Trends />
           <History />
         </div>

@@ -68,7 +68,7 @@ const First = ({ className, setFirst, setSecond, setThird }) => {
           button.
         </h1>
       </div>
-      <span className="text-sm text-accent font-semibold flex gap-3 mt-8">
+      <span className="text-sm text-accent font-semibold flex gap-3 my-8">
         <button className="bg-white rounded-md py-2 px-4" onClick={handle}>
           Transferred, notify seller
         </button>
