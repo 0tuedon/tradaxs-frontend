@@ -3,7 +3,7 @@ import axios from "axios";
 // getting the token if there a math
 
 export const axiosClientU  = axios.create({
-    timeout:10000,
+    timeout:20000,
     headers:{
         token:process.env.NEXT_PUBLIC_TOKEN,
         "content-type":'multipart/form',
