@@ -2,13 +2,16 @@ import { useFormik } from "formik";
 import {ToastContainer,toast} from 'react-toastify'
 import "react-toastify/dist/ReactToastify.css";
 import * as Yup from 'yup'
-import { createWalletReq } from "../../services/walletServices";
+import { createWalletReq, getAllAssets } from "../../services/walletServices";
 import jsCookies from "js-cookies";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Loading from "../Loading";
+import { AllCoinAssets } from "../../data/static/Assets";
 const CreateWallet = ({ handle }) => {
   const [isLoading,setIsLoading] = useState(false)
+  const [coinType,setCoinType] = useState(AllCoinAssets)
   const submitHandler = async (values) => {
+    
     setIsLoading(true)
     values.userId = +jsCookies.getItem("userId")
     const { data, err } = await createWalletReq(values)
@@ -19,7 +22,7 @@ const CreateWallet = ({ handle }) => {
       },1000)
     }
     else{
-      toast.error(`${values.coin_type} ${err?.message||"Error"}`)
+      toast.error(`${values.coin_type} ${err?.message||err?.error}`)
       setIsLoading(false)
     }
 
@@ -29,6 +32,20 @@ const CreateWallet = ({ handle }) => {
     onSubmit:submitHandler,
     validationSchema:Yup.object({coin_type:Yup.string().required()})
   })
+
+  // useEffect 
+  useEffect(()=>{
+   const getCoinTypes = async()=>{
+    let {data,err}  = await getAllAssets(jsCookies.getItem("accessToken")) 
+    data = data || AllCoinAssets
+
+    return{
+      data:data || AllCoinAssets
+    }
+    }
+    getCoinTypes()
+   
+  },[])
   return (
     <div className="text-white">
       <ToastContainer
@@ -57,15 +74,11 @@ const CreateWallet = ({ handle }) => {
                   bg-[#F2F2F2] w-full rounded-md outline-none
                    mt-1 text-sm font-normal mb-[4px]`}
                 >
-                  <option value={"BTC"}>
-                    BTC
-                  </option>
-                  <option value={"ETH"}>
-                    ETH
-                  </option>
-                  <option value={"LTC"}>
-                    LTC
-                  </option>
+                  {coinType.map(data=>
+                  <option key={data.id} value={data?.asset_name}>
+                    {data?.asset_name}
+                  </option>)}
+          
                 </select>
                 
                 {Formik.errors.coin_type && Formik.touched.coin_type

@@ -1,9 +1,12 @@
+
 import React from "react";
+import Cookies from "cookies";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import Transactions from "../../components/Dashboard/Transactions";
 import Link from "next/link";
+import { getAllAssets } from "../../services/walletServices";
 
-const Wallet = () => {
+const Wallet = (props) => {
   return (
     <AuthLayout>
       <section className="w-full max-w-full text-white md:pt-4">
@@ -45,3 +48,25 @@ const WalletCard = ({ item }) => {
 };
 
 export default Wallet;
+
+
+export async function getServerSideProps(context) {
+  // getting Cookies 
+  const cookies = new Cookies(context.req,context.res)
+  const Router = context.params
+  const coinType = Router?.crypto || ""
+  const tokenId = cookies.get("accessToken")
+  const values = {
+    userId:cookies.get("userId") || null,
+    coin_type:coinType.toUpperCase()
+  }
+  // request for userWallet
+
+  const {data,err}  = await getAllAssets(tokenId) 
+  console.log(data) 
+  return {
+    props: {
+      assets:data?.data || {}
+    }, // will be passed to the page component as props
+  }
+}
