@@ -22,7 +22,7 @@ const Login = () => {
     console.log(data?.user)
     if (data) {
       JsCookies.setItem("accessToken", data?.accessToken);
-      JsCookies.setItem("user",JSON.stringify(data?.user))
+      JsCookies.setItem("userId",data?.user?.id)
       localStorage.setItem("login-modal", true);
       Router.push(paths.DASHBOARD);
     } else {

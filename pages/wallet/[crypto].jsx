@@ -6,7 +6,9 @@ import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Input from "../../components/Input";
 import { createPortal } from "react-dom";
-import { useRouter } from "next/router";
+import { useRouter, } from "next/router";
+import Cookies from "cookies";
+import { getUserWalletsReq } from "../../services/walletServices";
 
 const Crypto = () => {
   const [isModalOpened, setModalOpened] = useState(false);
@@ -70,8 +72,6 @@ const Crypto = () => {
   );
 };
 
-export default Crypto;
-
 const WalletModal = ({ handle }) => {
   const submitHandler = (values) => {};
   return (
@@ -130,3 +130,27 @@ export const Portal = ({ children }) => {
     ? createPortal(children, document.querySelector("#__next"))
     : null;
 };
+
+export default Crypto;
+
+// getServerSideProps
+
+
+export async function getServerSideProps(context) {
+  // getting Cookies 
+  const cookies = new Cookies(context.req,context.res)
+  const Router = context.params
+  const coinType = Router?.crypto || ""
+  const tokenId = cookies.get("accessToken")
+  const values = {
+    userId:cookies.get("userId") || null,
+    coin_type:coinType.toUpperCase()
+  }
+  // request for userWallet
+
+  const {data,err}  = await getUserWalletsReq(values,tokenId)
+  console.log(data)
+  return {
+    props: {}, // will be passed to the page component as props
+  }
+}
