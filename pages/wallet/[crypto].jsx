@@ -1,21 +1,31 @@
 import React, { useEffect, useState } from "react";
 import Transactions from "../../components/Dashboard/Transactions";
+import {ToastContainer,toast} from 'react-toastify'
+import "react-toastify/dist/ReactToastify.css";
 import AuthLayout from "../../components/Layouts/AuthLayout";
 import { IoIosCopy } from "react-icons/io";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import Input from "../../components/Input";
 import { createPortal } from "react-dom";
-import { useRouter } from "next/router";
+import { useRouter, } from "next/router";
+import Cookies from "cookies";
+import { getUserWalletsReq } from "../../services/walletServices";
 
-const Crypto = () => {
+const Crypto = (props) => {
   const [isModalOpened, setModalOpened] = useState(false);
+  let {wallet} = props
+ const copied = ()=>{
+  navigator.clipboard.writeText(wallet?.address||"")
+  toast.success("Copied to clipboard")
+ }
   const handleSend = () => {
     setModalOpened(!isModalOpened);
   };
   const coin = useRouter().query;
   return (
     <AuthLayout>
+      <ToastContainer autoClose={500}/>
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
         <div className="relative mb-24">
@@ -23,9 +33,9 @@ const Crypto = () => {
             <span className="flex items-center justify-between mb-[4.75rem]">
               <span className="mb-[0.375rem]">
                 <h2 className="text-base uppercase md:text-[2.5rem] md:leading-[3.75rem]">
-                  {coin.crypto}
+                  {wallet?.coin_type||""}
                 </h2>
-                <p className="text-xs">0.067890</p>
+                <p className="text-xs">{wallet?.balance||0}</p>
               </span>
               <span>
                 <h4 className="text-sm opacity-50 leading-[1.3125rem]">
@@ -45,10 +55,10 @@ const Crypto = () => {
               </h4>
               <span className="flex sm:items-center justify-start w-full md:gap-[1.125rem] flex-col sm:flex-row">
                 <h2 className="text-sm uppercase md:text-[1.0625rem] break-words leading-[1.6rem]">
-                  0x095418a82bc2439703b69fbe1210824f2247d77c
+                  {wallet?.address||"Cant' get Address"}
                 </h2>
                 <span className="flex-auto">
-                  <IoIosCopy className="w-6 h-6 cursor-pointer" />
+                  <IoIosCopy onClick={copied} className="w-6 h-6 cursor-pointer" />
                 </span>
               </span>
             </span>
@@ -69,8 +79,6 @@ const Crypto = () => {
     </AuthLayout>
   );
 };
-
-export default Crypto;
 
 const WalletModal = ({ handle }) => {
   const submitHandler = (values) => {};
@@ -130,3 +138,28 @@ export const Portal = ({ children }) => {
     ? createPortal(children, document.querySelector("#__next"))
     : null;
 };
+
+export default Crypto;
+
+// getServerSideProps
+
+
+export async function getServerSideProps(context) {
+  // getting Cookies 
+  const cookies = new Cookies(context.req,context.res)
+  const Router = context.params
+  const coinType = Router?.crypto || ""
+  const tokenId = cookies.get("accessToken")
+  const values = {
+    userId:cookies.get("userId") || null,
+    coin_type:coinType.toUpperCase()
+  }
+  // request for userWallet
+
+  const {data,err}  = await getUserWalletsReq(values,tokenId)  
+  return {
+    props: {
+      wallet:data?.data || {}
+    }, // will be passed to the page component as props
+  }
+}

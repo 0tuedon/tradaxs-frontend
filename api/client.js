@@ -17,7 +17,6 @@ export const axiosClientP  = axios.create({
     timeout:20000,
     headers:{
         "content-type":'multipart/form',
-        authorization:process.env.NEXT_PUBLIC_AUTHORIZATION,
         "Access-Control-Allow-Origin":'*'
     }},
 )
