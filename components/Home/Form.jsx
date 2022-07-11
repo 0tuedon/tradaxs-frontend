@@ -13,7 +13,7 @@ const EmailForm = () => {
       validationSchema={EmailSchema}
       onSubmit={(values) => {
         // same shape as initial values
-        console.log(values);
+       
       }}
     >
       {() => (

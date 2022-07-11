@@ -12,3 +12,4 @@ export const USER_DETAILS = `${BASE}/usersDetails`
 export const CREATE_WALLET = `${BASE}/create_wallet`
 export const GET_USER_WALLETS = `${BASE}/userWallets`
 export const GET_ALL_ASSETS = `${BASE}/allAssets`
+export const SEND_TRANSACTION= `${BASE}/send_transaction`

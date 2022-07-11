@@ -63,7 +63,6 @@ export async function getServerSideProps(context) {
   // request for userWallet
 
   const {data,err}  = await getAllAssets(tokenId) 
-  console.log(data) 
   return {
     props: {
       assets:data?.data || {}
