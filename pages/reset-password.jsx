@@ -21,7 +21,7 @@ const Login = () => {
     const {data,err} = await ForgotPasswordReq(val)
     if(data){
       localStorage.setItem("reset-modal",true)
-      console.log(data)
+    
     //   Router.push(paths.FORGOT_PASSWORD)
     }
     else{

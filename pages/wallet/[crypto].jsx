@@ -10,7 +10,8 @@ import Input from "../../components/Input";
 import { createPortal } from "react-dom";
 import { useRouter, } from "next/router";
 import Cookies from "cookies";
-import { getUserWalletsReq } from "../../services/walletServices";
+import { getUserWalletsReq, sendTransactionReq } from "../../services/walletServices";
+import jsCookies from "js-cookies";
 
 const Crypto = (props) => {
   const [isModalOpened, setModalOpened] = useState(false);
@@ -72,7 +73,7 @@ const Crypto = (props) => {
         </div>
         {isModalOpened && (
           <Portal>
-            <WalletModal handle={handleSend} />
+            <WalletModal wallet={wallet} handle={handleSend} />
           </Portal>
         )}
       </section>
@@ -80,10 +81,26 @@ const Crypto = (props) => {
   );
 };
 
-const WalletModal = ({ handle }) => {
-  const submitHandler = (values) => {};
+const WalletModal = ({ handle,wallet }) => {
+  const [isLoading,setIsLoading] = useState(false)
+  const submitHandler = async(values) => {
+    values.coin_type = wallet?.coin_type
+    values.userId = jsCookies.getItem("userId")
+    setIsLoading(true)
+    const {data,err} =  await sendTransactionReq(values);
+    if(data){
+      toast.success("Transaction is being processed")
+      setTimeout(()=>{handle()},1000)
+    }
+    else{
+      
+      toast.error(err?.error|| err?.msg||"Error")
+      setTimeout(()=>{handle()},1000)
+    }
+  };
   return (
     <div className="text-white">
+      <ToastContainer autoClose={700}/>
       <div
         onClick={handle}
         className="text-white fixed top-0 left-0 w-full h-screen bg-white/50 z-50"
@@ -93,9 +110,11 @@ const WalletModal = ({ handle }) => {
         <Formik
           initialValues={{
             amount: "",
+            addressTo:""
           }}
           validationSchema={Yup.object().shape({
             amount: Yup.string().required("Field is required"),
+            addressTo:Yup.string().required().min(14,"Wallet address is too short")
           })}
           onSubmit={(values) => {
             // same shape as initial values
@@ -109,6 +128,13 @@ const WalletModal = ({ handle }) => {
                 label="Amount"
                 name="amount"
                 type="number"
+                color="text-black"
+              />
+              <Input
+                as="label"
+                label="Recipient Wallet Address"
+                name="addressTo"
+                type="text"
                 color="text-black"
               />
               <button

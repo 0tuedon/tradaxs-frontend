@@ -11,7 +11,6 @@ const Transactions = () => {
   const handle = async () => {
     setOpenModal((prev) => !prev);
     const { data, err } = await getProfileDetailsReq();
-    console.log(data);
   };
   return (
     <>
