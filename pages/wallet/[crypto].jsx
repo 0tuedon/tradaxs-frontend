@@ -42,22 +42,19 @@ const Crypto = (props) => {
       <ToastContainer autoClose={500} />
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
-
         {wallet.address && (
           <div className="relative mb-24">
-            <div className="md:max-w-[35.8rem] w-full max-w-full overflow-hidden bg-landingBlue rounded-[0.625rem] min-h-[24.375rem] py-[2.0625rem] px-[2.25rem]">
-              <span className="flex items-center justify-between mb-[4.75rem]">
+            <div className="md:max-w-[35.8rem] w-full max-w-full overflow-hidden bg-landingBlue rounded-[0.625rem] min-h-[16rem] py-[2.0625rem] px-6 sm:px-[2.25rem]">
+              <span className="flex items-center justify-between mb-8">
                 <span className="mb-[0.375rem]">
-                  <h2 className="text-base uppercase md:text-[2.5rem] md:leading-[3.75rem]">
-                    {wallet?.coin_type || ""}
+                  <h2 className="text-xs uppercase">
+                    {wallet?.coin_type || "btc"}
                   </h2>
-                  <p className="text-xs">{wallet?.balance || 0}</p>
+                  <p className="text-sm mt-1">{wallet?.balance || 0}</p>
                 </span>
                 <span>
-                  <h4 className="text-sm opacity-50 leading-[1.3125rem]">
-                    Current Price
-                  </h4>
-                  <h2 className="text-base md:text-[1.0625rem] leading-[1.6rem]">
+                  <h4 className="text-sm leading-[1.3125rem]">Current Price</h4>
+                  <h2 className="text-xs mt-1">
                     {new Intl.NumberFormat("en-US", {
                       style: "currency",
                       currency: "USD",
@@ -65,21 +62,20 @@ const Crypto = (props) => {
                   </h2>
                 </span>
               </span>
-              <span className="mb-[4.5rem] block max-w-full">
-                <h4 className="text-sm opacity-50 leading-[1.3125rem]">
-                  Address
-                </h4>
-                <span className="flex sm:items-center justify-start w-full md:gap-[1.125rem] flex-col sm:flex-row">
-                  <h2 className="text-sm uppercase md:text-[1.0625rem] break-words leading-[1.6rem]">
-                    {wallet?.address || "Cant' get Address"}
-                  </h2>
-                  <span className="flex-auto">
+              <span className="mb-8 block max-w-full">
+                <h4 className="text-sm leading-[1.3125rem]">Address</h4>
+                <h2 className="flex items-center justify-start w-full gap-2 md:gap-[1.125rem]text-sm uppercase mt-1 h-fit">
+                  <span className="max-w-[15rem] inline-block break-word overflow-hidden text-ellipsis h-fit">
+                    {wallet?.address ||
+                      "0x095418a82bc2439703b69fbe1210824f2247d77c"}
+                  </span>
+                  <span>
                     <IoIosCopy
                       onClick={copied}
-                      className="w-6 h-6 cursor-pointer"
+                      className="w-5 h-5 cursor-pointer"
                     />
                   </span>
-                </span>
+                </h2>
               </span>
               <button
                 onClick={handleSend}
