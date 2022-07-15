@@ -42,15 +42,15 @@ const Crypto = (props) => {
       <ToastContainer autoClose={500} />
       <section className="w-full max-w-full text-white md:pt-4">
         <Transactions />
-        {wallet.address && (
+        {wallet.address ? (
           <div className="relative mb-24">
             <div className="md:max-w-[35.8rem] w-full max-w-full overflow-hidden bg-landingBlue rounded-[0.625rem] min-h-[16rem] py-[2.0625rem] px-6 sm:px-[2.25rem]">
-              <span className="flex items-center justify-between mb-8">
+              <span className="flex items-start justify-between mb-8">
                 <span className="mb-[0.375rem]">
-                  <h2 className="text-xs uppercase">
+                  <h2 className="text-sm uppercase">
                     {wallet?.coin_type || "btc"}
                   </h2>
-                  <p className="text-sm mt-1">{wallet?.balance || 0}</p>
+                  <p className="text-xs mt-1">{wallet?.balance || 0}</p>
                 </span>
                 <span>
                   <h4 className="text-sm leading-[1.3125rem]">Current Price</h4>
@@ -66,8 +66,7 @@ const Crypto = (props) => {
                 <h4 className="text-sm leading-[1.3125rem]">Address</h4>
                 <h2 className="flex items-center justify-start w-full gap-2 md:gap-[1.125rem]text-sm uppercase mt-1 h-fit">
                   <span className="max-w-[15rem] inline-block break-word overflow-hidden text-ellipsis h-fit">
-                    {wallet?.address ||
-                      "0x095418a82bc2439703b69fbe1210824f2247d77c"}
+                    {wallet?.address || "Can't get address"}
                   </span>
                   <span>
                     <IoIosCopy
@@ -85,6 +84,11 @@ const Crypto = (props) => {
               </button>
             </div>
           </div>
+        ) : (
+          <p className="text-xs md:text-sm text-center opacity-70">
+            No wallet found. Click on create new wallet button above to create a
+            new one
+          </p>
         )}
         {isNoWalletModalOpened && (
           <NoWalletModal handleClose={handleCloseNoWalletModal} />
