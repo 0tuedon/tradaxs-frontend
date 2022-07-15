@@ -7,6 +7,7 @@ import AuthLayout from "../../components/Layouts/AuthLayout";
 import HeaderNav from "../../components/p2p/HeaderNav";
 import { p2pTable } from "../../data/static/tableDatas";
 import BuyModal from "../../components/p2p/BuyModal";
+import Card from "../../components/p2p/Card";
 
 const Index = () => {
   let cryptoCurrencies = ["USDT", "BTC", "BNB", "BUSDT", "ETH", "LTC"];
@@ -20,19 +21,20 @@ const Index = () => {
         <Transactions />
         <div className="relative w-full overflow-auto max-w-screen">
           <BuyModal
-            className={`fixed top-0 left-0 w-full h-screen z-50 ${
+            className={`fixed top-0 left-1/2 -translate-x-1/2 w-full h-screen z-50 max-w-[95%] ${
               isBuyingModalOpened ? "scale-100" : "scale-0"
             }`}
+            state={isBuyingModalOpened}
             handleToggle={handleToggle}
           />
           <div className="max-w-screen min-w-fit rounded-lg bg-gradient-to-b from-landingBlue font-[700]">
-            <div className="min-w-fit flex items-center justify-between gap-10 px-5 py-3 border-b md:px-10 mb-[1.6rem]">
-              <div className="flex items-center justify-start gap-10">
-                <div className="w-fit bg-[#D9D9D9] rounded-md text-xs p-2 flex justify-between items-center">
-                  <button className="px-5 py-2 rounded-md bg-landingBlue">
+            <div className="min-w-fit flex md:items-center justify-between gap-10 px-3 sm:px-5 py-3 border-b md:px-10 mb-[1.6rem]">
+              <div className="flex flex-col md:flex-row md:items-center justify-start gap-3 md:gap-10">
+                <div className="w-fit bg-[#D9D9D9] rounded-md text-xs p-1 md:p-2 flex justify-between items-center">
+                  <button className="md:px-5 px-3 py-2 rounded-md bg-landingBlue">
                     Buy
                   </button>
-                  <button className="px-5 py-2 text-black rounded-md">
+                  <button className="md:px-5 px-3 py-2 text-black rounded-md">
                     Sell
                   </button>
                 </div>
@@ -40,7 +42,7 @@ const Index = () => {
                   {cryptoCurrencies.map((ct, i) => {
                     return (
                       <li key={i} className="group">
-                        <button className="text-[0.94rem] font-semibold transition-all duration-200 hover:underline focus:underline group-first-of-type:underline">
+                        <button className="text-xs md:text-[0.94rem] md:font-semibold transition-all duration-200 decoration-2 hover:underline focus:underline group-first-of-type:underline">
                           {ct}
                         </button>
                       </li>
@@ -48,9 +50,11 @@ const Index = () => {
                   })}
                 </ul>
               </div>
-              <HeaderNav />
+              <span className="w-fit inline-block mt-3 md:mt-0">
+                <HeaderNav />
+              </span>
             </div>
-            <div className="min-w-fit whitespace-nowrap">
+            <div className="min-w-fit whitespace-nowrap hidden md:block">
               <Table
                 type="p2p"
                 header={[
@@ -63,6 +67,11 @@ const Index = () => {
                 data={p2pTable}
                 handleToggle={handleToggle}
               />
+            </div>
+            <div className="px-3 space-y-3 sm:px-5 md:hidden">
+              {p2pTable.map((data, i) => {
+                return <Card key={i} data={data} handleToggle={handleToggle} />;
+              })}
             </div>
           </div>
         </div>

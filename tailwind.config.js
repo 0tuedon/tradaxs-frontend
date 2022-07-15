@@ -1,3 +1,5 @@
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -5,6 +7,10 @@ module.exports = {
   ],
   plugins: [require("tailwind-scrollbar")],
   theme: {
+    screens: {
+      xs: "390px",
+      ...defaultTheme.screens,
+    },
     extend: {
       colors: {
         accent: "#1B3593",

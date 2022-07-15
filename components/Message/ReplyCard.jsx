@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { BsFillFileEarmarkArrowUpFill, BsPatchCheckFill } from "react-icons/bs";
 import { IoSend } from "react-icons/io5";
+import { MdReportGmailerrorred } from "react-icons/md";
 
 const ReplyCard = ({ background = "" }) => {
   const [messages, setMessages] = useState([
-    "Good Evening please i have transfered the funds",
+    "Good Evening please I have transfered the funds",
   ]);
   const [msg, setMsg] = useState("");
   const handle = (e) => {
@@ -21,16 +22,22 @@ const ReplyCard = ({ background = "" }) => {
   return (
     <div className="bg-landingBlue rounded-lg max-w-sm pb-2 mb-[6rem] w-full">
       <div
-        className={`flex justify-start items-center rounded-t-lg gap-2 px-[1.25rem] pt-[1.875rem] pb-[2.5rem] ${background}`}
+        className={`flex justify-between items-center rounded-t-lg gap-2 px-[1.25rem] pt-[1.875rem] pb-[2.5rem] ${background}`}
       >
-        <span className="relative h-10 w-10 rounded-full grid place-items-center bg-white text-accent font-medium">
-          <span>R</span>
-          <BsPatchCheckFill className="w-4 h-4 text-green-700 absolute bottom-0 right-0" />
-        </span>
-        <span>
-          <h2 className="text-sm font-semibold">maxMoney</h2>
-          <p className="text-xs">Verifired User</p>
-        </span>
+        <div className="flex justify-start items-center gap-2">
+          <span className="relative h-10 w-10 rounded-full grid place-items-center bg-white text-accent font-medium">
+            <span>R</span>
+            <BsPatchCheckFill className="w-4 h-4 text-green-700 absolute bottom-0 right-0" />
+          </span>
+          <span>
+            <h2 className="text-sm font-semibold">maxMoney</h2>
+            <p className="text-xs">Verifired User</p>
+          </span>
+        </div>
+        <MdReportGmailerrorred
+          className="h-6 w-6 cursor cursor-pointer"
+          title="Report"
+        />
       </div>
       <div className="bg-white h-96 mx-2 relative">
         <p className="text-xs text-center text-accent absolute top-0 py-2 left-1/2 -translate-x-1/2 z-40 bg-white w-full">

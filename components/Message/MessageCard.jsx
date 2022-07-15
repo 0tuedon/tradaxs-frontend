@@ -5,7 +5,7 @@ import { BsPatchCheckFill } from "react-icons/bs";
 const MessageCard = () => {
   return (
     <Link href="/messages/reply/1" passHref>
-      <a className="block">
+      <a className="block transition-transform hover:scale-105 duration-200">
         <div className="flex items-center justify-between bg-landingBlue rounded-[0.625rem] py-3 px-3">
           <div className="flex justify-start items-center gap-2">
             <span className="relative h-10 w-10 rounded-full grid place-items-center bg-white text-accent font-medium">

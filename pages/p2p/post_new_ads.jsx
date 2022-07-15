@@ -33,7 +33,7 @@ const Index = () => {
             <HeaderNav />
           </div>
           <div className="w-full max-w-full">
-            <div className="max-w-full overflow-auto">
+            <div className="max-w-full overflow-auto mt-2">
               <Progress second={secondActive} third={thirdActive} />
             </div>
             <div className="mt-8 mb-20">
