@@ -60,7 +60,7 @@ const Trends = () => {
           <Image src={Path3} alt="path" />
         </div>
 
-        <div className="w-44">
+        <div className="w-full lg:w-44">
           <span className="flex items-center justify-between mb-2 opacity-70">
             <span className="flex items-center justify-between space-x-3">
               <p className="text-xs font-medium">BTC</p>
