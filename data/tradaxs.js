@@ -26,12 +26,12 @@ export const NavigationLinks = [
     Icon: FaPeopleArrows,
   },
   {
-    name: "Trade",
-    route: "/trade",
+    name: "Training",
+    route: "/training",
     Icon: GiTrade,
   },
   {
-    name: "Account setting",
+    name: "Account mgt",
     route: "/account-mgt",
     Icon: RiAccountPinCircleFill,
   },

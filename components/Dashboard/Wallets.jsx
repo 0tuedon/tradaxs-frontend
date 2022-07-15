@@ -10,7 +10,7 @@ const Wallets = () => {
   return (
     <div>
       <h2 className="mb-3 text-xs font-medium uppercase opacity-70">Wallets</h2>
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-x-2 gap-y-3 md:gap-5 place-items-start justify-content-start max-w-3xl">
+      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xs:gap-x-10 gap-x-2 gap-y-3 md:gap-3 lg:gap-5 place-items-start justify-content-start max-w-3xl">
         <div className="flex items-center justify-between p-3 space-x-2 sm:space-x-5 rounded-md walletCard w-full max-w-full">
           <BsCurrencyBitcoin className="w-8 h-8" />
           <span>
