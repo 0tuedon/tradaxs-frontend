@@ -12,7 +12,18 @@ const LineChart = () => {
         id: "basic-bar",
         type: "line",
         width: "100%",
+        fontFamily: "Poppins",
         toolbar: { show: false },
+      },
+      legend: {
+        position: "top",
+        horizontalAlign: "left",
+        fontSize: "10px",
+        fontFamily: "Poppins",
+        labels: {
+          colors: ["#FFF"],
+          useSeriesColors: false,
+        },
       },
       stroke: {
         curve: "smooth",
@@ -37,6 +48,50 @@ const LineChart = () => {
           "6:59PM",
           "7:59PM",
         ],
+        labels: {
+          style: {
+            colors: [
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+            ],
+          },
+        },
+      },
+      yaxis: {
+        axisBorder: {
+          show: true,
+          color: "#ffffff",
+        },
+        axisTicks: {
+          show: true,
+          borderType: "solid",
+          color: "#ffffff",
+          width: 6,
+          offsetX: 0,
+          offsetY: 0,
+        },
+        labels: {
+          style: {
+            colors: [
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+              "#ffffff",
+            ],
+          },
+        },
       },
       colors: ["#FB49C0", "#31AFD6", "#F5A623"],
     },
