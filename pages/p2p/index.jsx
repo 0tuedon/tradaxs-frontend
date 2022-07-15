@@ -27,8 +27,8 @@ const Index = () => {
             state={isBuyingModalOpened}
             handleToggle={handleToggle}
           />
-          <div className="max-w-screen min-w-fit rounded-lg bg-gradient-to-b from-landingBlue font-[700]">
-            <div className="min-w-fit flex md:items-center justify-between gap-10 px-3 sm:px-5 py-3 border-b md:px-10 mb-[1.6rem]">
+          <div className="md:max-w-screen md:min-w-fit rounded-lg bg-gradient-to-b from-landingBlue font-[700]">
+            <div className="w-full max-w-full flex md:items-center justify-between md:gap-10 px-3 sm:px-5 py-3 border-b md:px-10 mb-[1.6rem]">
               <div className="flex flex-col md:flex-row md:items-center justify-start gap-3 md:gap-10">
                 <div className="w-fit bg-[#D9D9D9] rounded-md text-xs p-1 md:p-2 flex justify-between items-center">
                   <button className="md:px-5 px-3 py-2 rounded-md bg-landingBlue">
@@ -38,7 +38,7 @@ const Index = () => {
                     Sell
                   </button>
                 </div>
-                <ul className="flex items-center justify-start gap-3">
+                <ul className="flex items-center justify-start gap-2 sm:gap-3">
                   {cryptoCurrencies.map((ct, i) => {
                     return (
                       <li key={i} className="group">
@@ -54,7 +54,7 @@ const Index = () => {
                 <HeaderNav />
               </span>
             </div>
-            <div className="min-w-fit whitespace-nowrap hidden md:block">
+            <div className="md:min-w-fit whitespace-nowrap hidden md:block">
               <Table
                 type="p2p"
                 header={[
@@ -68,7 +68,7 @@ const Index = () => {
                 handleToggle={handleToggle}
               />
             </div>
-            <div className="px-3 space-y-3 sm:px-5 md:hidden">
+            <div className="px-3 space-y-3 sm:px-5 md:hidden max-w-full w-full">
               {p2pTable.map((data, i) => {
                 return <Card key={i} data={data} handleToggle={handleToggle} />;
               })}

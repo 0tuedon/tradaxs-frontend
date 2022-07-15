@@ -11,7 +11,7 @@ const HeaderNav = () => {
     setOpened(!isOpened);
   };
   return (
-    <span className="relative">
+    <span className="relative inline-block w-fit">
       <button
         className="flex items-center justify-between gap-2 text-xs md:text-sm transition-transform duration-200 hover:scale-110"
         onClick={handleToggle}
