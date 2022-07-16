@@ -49,6 +49,13 @@ export const adsTable = [
     limit: [200.0, 483.86],
     payment: "bank transfer",
   },
+  {
+    advertiser: "Rolex",
+    price: 0.97,
+    available: 498.6,
+    limit: [200.0, 483.86],
+    payment: "bank transfer",
+  },
 ];
 
 export const transactionHistory = [
