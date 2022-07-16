@@ -75,7 +75,7 @@ const Index = () => {
             </div>
           </div>
         </div>
-        <div className="flex flex-col mt-5 mb-10 min-h-64 lg:flex-row md:space-x-10">
+        <div className="flex flex-col mt-8 space-y-5 md:space-y-0 mb-10 min-h-64 lg:flex-row md:space-x-10">
           <Trends />
           <History />
         </div>

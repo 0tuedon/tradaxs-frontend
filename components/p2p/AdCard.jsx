@@ -3,17 +3,19 @@ import { IoIosEye } from "react-icons/io";
 import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin4Fill } from "react-icons/ri";
 
-const AdCard = ({ data: { price, trade, available, limit, payment } }) => {
+const AdCard = ({ data: { advertiser, price, available, limit, payment } }) => {
   return (
     <div className="flex justify-between items-center font-medium border-b pb-3">
       <div>
-        <p className="text-xs opacity-70 mb-1">Price</p>
-        <h2 className="mb-1 text-lg">{price}</h2>
+        <p className="text-xs opacity-70 mb-1">Advertiser</p>
+        <h2 className="mb-1 text-lg">{advertiser}</h2>
         <p className="text-xs opacity-70 mb-1">
-          Amount&nbsp;&nbsp;&nbsp;
-          <span>
-            {available} {trade}
-          </span>
+          Price&nbsp;&nbsp;&nbsp;
+          <span>{price} USD</span>
+        </p>
+        <p className="text-xs opacity-70 mb-1">
+          Available&nbsp;&nbsp;&nbsp;
+          <span>{available} USDT</span>
         </p>
         <p className="text-xs opacity-70">
           Limit&nbsp;&nbsp;&nbsp;
@@ -22,7 +24,7 @@ const AdCard = ({ data: { price, trade, available, limit, payment } }) => {
               style: "currency",
               currency: "USD",
             }).format(limit[0])}
-            -
+            &nbsp; - &nbsp;
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",

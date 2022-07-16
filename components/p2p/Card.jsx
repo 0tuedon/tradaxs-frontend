@@ -8,7 +8,7 @@ const Card = ({
     <div className="flex justify-between items-center font-medium border-b pb-3">
       <div>
         <p className="text-xs opacity-70 mb-1">Price</p>
-        <h2 className="mb-1 text-lg">{price}</h2>
+        <h2 className="mb-1 text-lg">{price} USD</h2>
         <p className="text-xs opacity-70 mb-1">
           Amount&nbsp;&nbsp;&nbsp;
           <span>
@@ -22,7 +22,7 @@ const Card = ({
               style: "currency",
               currency: "USD",
             }).format(limit[0])}
-            -
+            &nbsp; - &nbsp;
             {new Intl.NumberFormat("en-US", {
               style: "currency",
               currency: "USD",
