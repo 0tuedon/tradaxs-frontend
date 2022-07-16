@@ -20,7 +20,7 @@ const TopBar = ({ title, handleToggle }) => {
   };
 
   const handleLogout = () => {
-    router.push("/auth/sign_in");
+    router.push("/login");
   };
 
   const handleClick = () => {
