@@ -40,7 +40,7 @@ const BuyModal = ({ className, handleToggle, state }) => {
                     <span className="font-semibold">0.08 USDT</span>
                   </p>
                 </div>
-                <div className="flex justify-between items-center font-normal text-xs mb-5 opacity-70">
+                <div className="flex justify-between flex-col xs:flex-row gap-2 xs:items-center font-normal text-xs mb-5 opacity-70">
                   <p>
                     Payment Time Limit:&nbsp;
                     <span className="font-semibold">15 Minutes</span>
