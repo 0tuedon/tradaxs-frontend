@@ -7,9 +7,21 @@ import { BiChevronDown } from "react-icons/bi";
 import Image from "next/image";
 import PropTypes from "prop-types";
 import NotificationModal from "../Dashboard/NotificationModal";
+import Link from "next/link";
+import { useRouter } from "next/router";
 
 const TopBar = ({ title, handleToggle }) => {
   const [isNotificationOpened, setNotificationOpened] = useState(false);
+
+  const router = useRouter();
+  const [isMenuOpened, setMenuOpened] = useState(false);
+  const handleMenuToggle = () => {
+    setMenuOpened(!isMenuOpened);
+  };
+
+  const handleLogout = () => {
+    router.push("/auth/sign_in");
+  };
 
   const handleClick = () => {
     setNotificationOpened(!isNotificationOpened);
@@ -19,9 +31,9 @@ const TopBar = ({ title, handleToggle }) => {
       {/**content */}
       <h1 className="mb-1 text-base sm:text-2xl font-medium">Dashboard</h1>
 
-      <div className="relative flex items-center justify-between space-x-3 ">
-        <FiSearch className="w-5 h-5 transition-all duration-200 cursor-pointer opacity-70 hover:opacity-100" />
-        <MdApps className="w-6 h-6 transition-all duration-200 cursor-pointer hover:opacity-100 opacity-70" />
+      <div className="relative flex items-center justify-between space-x-2 xs:space-x-3 ">
+        {/* <FiSearch className="w-5 h-5 transition-all duration-200 cursor-pointer opacity-70 hover:opacity-100" />
+        <MdApps className="w-6 h-6 transition-all duration-200 cursor-pointer hover:opacity-100 opacity-70" /> */}
         {/**nofication */}
         <span
           className="flex items-center px-1 text-sm transition-all duration-200 rounded-full cursor-pointer notification hover:opacity-100 opacity-70"
@@ -32,7 +44,10 @@ const TopBar = ({ title, handleToggle }) => {
         </span>
         {isNotificationOpened && <NotificationModal />}
         {/**profile */}
-        <span className="items-center justify-between hidden space-x-1 text-sm font-medium transition-all duration-200 cursor-pointer sm:flex hover:opacity-100 opacity-70">
+        <span
+          onClick={handleMenuToggle}
+          className="items-center justify-between space-x-1 text-sm font-medium transition-all duration-200 cursor-pointer flex hover:opacity-100 opacity-70"
+        >
           <span className="relative w-6 h-6">
             <Image
               src="/eye-for-ebony-aZzXKGcyWqk-unsplash.jpg"
@@ -40,9 +55,23 @@ const TopBar = ({ title, handleToggle }) => {
               layout="fill"
             />
           </span>
-          <h4>Otuedon</h4>
+          <h4 className="hidden sm:inline-block">Otuedon</h4>
           <BiChevronDown className="w-4 h-4" />
         </span>
+        <ul
+          className={`absolute top-10 right-0 bg-white drop-shadow-sm px-5 py-3 text-sm text-black rounded-sm space-y-2 w-fit whitespace-nowrap transition-transform duration-200 ${
+            isMenuOpened ? "scale-100" : "scale-0"
+          }`}
+        >
+          <li className="transition-transform duration-200 hover:scale-110 focus:scale-110">
+            <Link href="/profile" passHref>
+              <a>Profile Settings</a>
+            </Link>
+          </li>
+          <li className="transition-transform duration-200 hover:scale-110 focus:scale-110 text-red-500">
+            <button onClick={handleLogout}>Log out</button>
+          </li>
+        </ul>
         {/* Hamburger */}
         <button className="md:hidden" onClick={handleToggle}>
           <AiOutlineMenu className="w-6 h-6 text-white transition-transform duration-200 hover:scale-110" />
