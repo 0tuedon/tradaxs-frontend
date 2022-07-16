@@ -22,7 +22,7 @@ const HeaderNav = () => {
         </span>
       </button>
       <ul
-        className={`absolute right-0 w-40 md:w-48 p-3 z-10 space-y-2 text-xs md:text-sm font-medium transition-transform duration-200 ${
+        className={`absolute right-0 w-40 md:w-48 p-3 z-10 space-y-3 text-xs md:text-sm font-medium transition-transform duration-200 ${
           isOpened ? "scale-100" : "scale-0"
         } bg-white rounded-md top-8 text-accent`}
       >
