@@ -21,7 +21,7 @@ const Login = () => {
     const { data, err } = await LoginReq(val);
     if (data) {
       JsCookies.setItem("accessToken", data?.accessToken);
-      JsCookies.setItem("userId",data?.user?.id)
+      JsCookies.setItem("userId", data?.user?.id);
       localStorage.setItem("login-modal", true);
       Router.push(paths.DASHBOARD);
     } else {
@@ -42,12 +42,11 @@ const Login = () => {
 
   const LoginSchema = Yup.object().shape({
     email: Yup.string().email("Invalid email").required("Field is required"),
-    password: Yup.string()
-      .required("Field is required")
+    password: Yup.string().required("Field is required"),
   });
 
   return (
-    <section className="grid max-w-full min-h-screen p-5 md:px-10 bg-bgray place-items-center">
+    <section className="flex max-w-full min-h-screen p-5 pt-10 md:px-10 bg-bgray justify-center items-start md:items-center">
       <ToastContainer autoClose={500} />
       <div className="w-full h-auto max-w-md p-5 pb-10 bg-white rounded-md">
         <span className="grid mx-auto mb-5 w-fit place-items-center">
@@ -123,7 +122,7 @@ const Login = () => {
         </Formik>
       </div>
     </section>
-  )
+  );
 };
 
 export default Login;
