@@ -53,13 +53,14 @@ const TopBar = ({ title, handleToggle }) => {
               src="/eye-for-ebony-aZzXKGcyWqk-unsplash.jpg"
               alt="profile pic"
               layout="fill"
+              priority
             />
           </span>
           <h4 className="hidden sm:inline-block">Otuedon</h4>
           <BiChevronDown className="w-4 h-4" />
         </span>
         <ul
-          className={`absolute top-10 right-0 bg-white drop-shadow-sm px-5 py-3 text-sm text-black rounded-sm space-y-2 w-fit whitespace-nowrap transition-transform duration-200 ${
+          className={`absolute top-10 right-0 z-50 bg-white drop-shadow-sm px-5 py-3 text-sm text-black rounded-sm space-y-2 w-fit whitespace-nowrap transition-transform duration-200 ${
             isMenuOpened ? "scale-100" : "scale-0"
           }`}
         >
