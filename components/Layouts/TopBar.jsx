@@ -29,7 +29,7 @@ const TopBar = ({ title, handleToggle }) => {
   return (
     <div className="flex items-start justify-between text-white">
       {/**content */}
-      <h1 className="mb-1 text-base sm:text-2xl font-medium">Dashboard</h1>
+      <h1 className="mb-1 text-base font-medium sm:text-2xl">Dashboard</h1>
 
       <div className="relative flex items-center justify-between space-x-2 xs:space-x-3 ">
         {/* <FiSearch className="w-5 h-5 transition-all duration-200 cursor-pointer opacity-70 hover:opacity-100" />
@@ -46,7 +46,7 @@ const TopBar = ({ title, handleToggle }) => {
         {/**profile */}
         <span
           onClick={handleMenuToggle}
-          className="items-center justify-between space-x-1 text-sm font-medium transition-all duration-200 cursor-pointer flex hover:opacity-100 opacity-70"
+          className="flex items-center justify-between space-x-1 text-sm font-medium transition-all duration-200 cursor-pointer hover:opacity-100 opacity-70"
         >
           <span className="relative w-6 h-6">
             <Image
@@ -66,10 +66,10 @@ const TopBar = ({ title, handleToggle }) => {
         >
           <li className="transition-transform duration-200 hover:scale-110 focus:scale-110">
             <Link href="/profile" passHref>
-              <a>Profile Settings</a>
+              <a>Profile</a>
             </Link>
           </li>
-          <li className="transition-transform duration-200 hover:scale-110 focus:scale-110 text-red-500">
+          <li className="text-red-500 transition-transform duration-200 hover:scale-110 focus:scale-110">
             <button onClick={handleLogout}>Log out</button>
           </li>
         </ul>
