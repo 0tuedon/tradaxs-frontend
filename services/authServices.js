@@ -24,9 +24,8 @@ export const SignupReq = async (val)=>{
     try{
     const formdata = new FormData();
     formdata.append("username",val.username)
-    formdata.append("bvn",val.bvn)
     formdata.append("name",val.name)
-    formdata.append("phone",`+234${val.username}`)
+    formdata.append("phone",`+234${val.phone}`)
     formdata.append("password",val.password)
     formdata.append("email",val.email);
     const response =  await axiosClientU.post(SIGNUP,formdata)
